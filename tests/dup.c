@@ -30,20 +30,23 @@
 #include "test_skel.h"
 
 int main(int argc, char *argv[]) {
+  int fds[2];
   int fd;
-  void *ptr;
+  char buf[10];
 
-  fd = sys_open("/dev/zero", O_RDONLY, 0);
-  assert(fd != -1);
+  // Create a pipe, then dupe one end.
+  assert(pipe(fds) == 0);
+  fd = sys_dup(fds[1]);
+  assert(fd >= 0);
 
-  ptr = sys_mmap(NULL, 0x1000, PROT_READ|PROT_WRITE, MAP_PRIVATE, fd, 0);
-  assert(ptr != MAP_FAILED);
+  // Write through the duped end and read the other side of the pipe.
+  assert(write(fd, "abc", 3) == 3);
+  assert(read(fds[0], buf, 3) == 3);
+  assert(memcmp(buf, "abc", 3) == 0);
 
-  assert(*(unsigned long *)ptr == 0);
-
-  assert(sys_munmap(ptr, 0x1000) == 0);
-
-  assert(sys_close(fd) == 0);
+  assert(close(fd) == 0);
+  assert(close(fds[0]) == 0);
+  assert(close(fds[1]) == 0);
 
   return 0;
 }

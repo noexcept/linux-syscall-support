@@ -40,16 +40,29 @@ CPPFLAGS += -I$(top_srcdir)
 LDFLAGS += -static
 
 TESTS = \
+	clone \
+	dup \
+	dup2 \
+	dup3 \
 	fallocate \
+	fork \
 	getitimer \
+	getpgrp \
 	getrandom \
 	lstat \
 	mmap \
+	pipe \
+	pipe2 \
+	prctl \
+	read \
+	readlink \
 	setitimer \
 	sigaction \
 	sigtimedwait \
 	stat \
 	unlink \
+	unlinkat \
+	write \
 
 all: check
 

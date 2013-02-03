@@ -30,20 +30,28 @@
 #include "test_skel.h"
 
 int main(int argc, char *argv[]) {
-  int fd;
-  void *ptr;
+  char buf[10];
 
-  fd = sys_open("/dev/zero", O_RDONLY, 0);
+  // Get a unique path to play with.
+  char foo[] = "tempfile.XXXXXX";
+  int fd = mkstemp(foo);
   assert(fd != -1);
+  assert(unlink(foo) == 0);
 
-  ptr = sys_mmap(NULL, 0x1000, PROT_READ|PROT_WRITE, MAP_PRIVATE, fd, 0);
-  assert(ptr != MAP_FAILED);
+  // Link it to a path.
+  assert(symlink("tgt", foo) == 0);
 
-  assert(*(unsigned long *)ptr == 0);
+  // Read it back.
+  buf[0] = '\0';
+  assert(sys_readlink(foo, buf, 10) == 3);
+  assert(memcmp(buf, "tgt", 3) == 0);
 
-  assert(sys_munmap(ptr, 0x1000) == 0);
+  // Check short read.
+  buf[0] = '\0';
+  assert(sys_readlink(foo, buf, 1) == 1);
 
-  assert(sys_close(fd) == 0);
+  // Clean it up.
+  assert(unlink(foo) == 0);
 
   return 0;
 }

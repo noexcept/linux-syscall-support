@@ -29,21 +29,25 @@
 
 #include "test_skel.h"
 
+// An exit code to check the child against.
+#define EXIT_CODE 123
+
 int main(int argc, char *argv[]) {
-  int fd;
-  void *ptr;
+  pid_t pid;
+  int status;
 
-  fd = sys_open("/dev/zero", O_RDONLY, 0);
-  assert(fd != -1);
+  // Create a child.
+  pid = sys_fork();
+  assert(pid >= 0);
 
-  ptr = sys_mmap(NULL, 0x1000, PROT_READ|PROT_WRITE, MAP_PRIVATE, fd, 0);
-  assert(ptr != MAP_FAILED);
+  // Have the child exit with a known status we can test for easily.
+  if (pid == 0)
+    _exit(EXIT_CODE);
 
-  assert(*(unsigned long *)ptr == 0);
-
-  assert(sys_munmap(ptr, 0x1000) == 0);
-
-  assert(sys_close(fd) == 0);
+  // Check the child exit status.
+  assert(waitpid(pid, &status, 0) == pid);
+  assert(WIFEXITED(status));
+  assert(WEXITSTATUS(status) == EXIT_CODE);
 
   return 0;
 }
