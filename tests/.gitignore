@@ -1,0 +1,5 @@
+/*_test
+
+# The "foo" targets are the names we use with temp files.
+/foo.*
+/sys_foo.*
