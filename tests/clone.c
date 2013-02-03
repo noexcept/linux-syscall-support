@@ -29,21 +29,40 @@
 
 #include "test_skel.h"
 
+// The stack for the thread.
+char stack[32 * 1024];
+
+// The exit status of the child.
+const int exit_status = 13;
+
+int callback(void *arg) {
+  _exit(exit_status);
+}
+
 int main(int argc, char *argv[]) {
-  int fd;
-  void *ptr;
+  pid_t pid;
 
-  fd = sys_open("/dev/zero", O_RDONLY, 0);
-  assert(fd != -1);
+  // When the child exits, it'll wake the futex at this address.
+  int ctid;
+  pid = sys_set_tid_address(&ctid);
+  assert(pid == getpid());
 
-  ptr = sys_mmap(NULL, 0x1000, PROT_READ|PROT_WRITE, MAP_PRIVATE, fd, 0);
-  assert(ptr != MAP_FAILED);
+  // Test creating a thread which is why we have to manage the stack.
+  // We set the stack to the middle of the buffer so we don't have to
+  // worry about stack-grows-up vs stack-grows-down architectures.
+  pid = sys_clone(callback, stack + (sizeof(stack) / 2),
+                  CLONE_FS | CLONE_VM | CLONE_CHILD_CLEARTID,
+                  &argc, NULL, NULL, &ctid);
+  assert(pid > 0);
 
-  assert(*(unsigned long *)ptr == 0);
+  // Wait for the child to signal it's exited.
+  sys_futex(&ctid, FUTEX_WAKE, 1, NULL, NULL, 0);
 
-  assert(sys_munmap(ptr, 0x1000) == 0);
-
-  assert(sys_close(fd) == 0);
+  // Check its exit status.
+  int status;
+  assert(waitpid(pid, &status, __WCLONE) == pid);
+  assert(WIFEXITED(status));
+  assert(WEXITSTATUS(status) == exit_status);
 
   return 0;
 }

@@ -30,20 +30,38 @@
 #include "test_skel.h"
 
 int main(int argc, char *argv[]) {
-  int fd;
-  void *ptr;
+  int fd, sys_fd;
+  struct stat st, sys_st;
 
-  fd = sys_open("/dev/zero", O_RDONLY, 0);
+  // Make sure opening an invalid path fails.
+  sys_fd = sys_openat(AT_FDCWD, "/.does_not_exist.asdfadfjalskd", O_RDONLY, 0);
+  assert(sys_fd == -1);
+  assert(errno == ENOENT);
+
+  // Open the same path via C lib & kernel and compare the two fds.
+  fd = open("/dev/null", O_RDONLY);
   assert(fd != -1);
+  sys_fd = sys_openat(AT_FDCWD, "/dev/null", O_RDONLY, 0);
+  assert(sys_fd != -1);
 
-  ptr = sys_mmap(NULL, 0x1000, PROT_READ|PROT_WRITE, MAP_PRIVATE, fd, 0);
-  assert(ptr != MAP_FAILED);
+  memset(&st, 0, sizeof(st));
+  memset(&sys_st, 0, sizeof(sys_st));
+  assert(fstat(fd, &st) == 0);
+  assert(fstat(sys_fd, &sys_st) == 0);
 
-  assert(*(unsigned long *)ptr == 0);
+  assert_buffers_eq(&st, &sys_st);
 
-  assert(sys_munmap(ptr, 0x1000) == 0);
+  assert(close(fd) == 0);
+  assert(sys_close(sys_fd) == 0);
 
-  assert(sys_close(fd) == 0);
+  // Open the path via a relative dir fd.
+  fd = open("/dev", O_RDONLY|O_DIRECTORY, 0);
+  assert(fd != -1);
+  sys_fd = sys_openat(fd, "null", O_RDONLY, 0);
+  assert(sys_fd != -1);
+
+  assert(close(fd) == 0);
+  assert(sys_close(sys_fd) == 0);
 
   return 0;
 }

@@ -29,21 +29,31 @@
 
 #include "test_skel.h"
 
+// A randomly high fd that shouldn't be allocated.  We'll close it in case
+// it was leaked into our runtime.
+#define HIGH_FD 70
+
 int main(int argc, char *argv[]) {
+  int fds[2];
   int fd;
-  void *ptr;
+  char buf[10];
 
-  fd = sys_open("/dev/zero", O_RDONLY, 0);
-  assert(fd != -1);
+  // Make sure the thing we dupe to is available.
+  close(HIGH_FD);
 
-  ptr = sys_mmap(NULL, 0x1000, PROT_READ|PROT_WRITE, MAP_PRIVATE, fd, 0);
-  assert(ptr != MAP_FAILED);
+  // Create a pipe, then dupe one end.
+  assert(pipe(fds) == 0);
+  fd = sys_dup2(fds[0], HIGH_FD);
+  assert(fd == HIGH_FD);
 
-  assert(*(unsigned long *)ptr == 0);
+  // Write through the pipe and read out the duped end.
+  assert(write(fds[1], "abc", 3) == 3);
+  assert(read(fd, buf, 3) == 3);
+  assert(memcmp(buf, "abc", 3) == 0);
 
-  assert(sys_munmap(ptr, 0x1000) == 0);
-
-  assert(sys_close(fd) == 0);
+  assert(close(fd) == 0);
+  assert(close(fds[0]) == 0);
+  assert(close(fds[1]) == 0);
 
   return 0;
 }

@@ -29,21 +29,54 @@
 
 #include "test_skel.h"
 
+// Check we can unlink files.
+static void unlinkat_file(int fd, char *path) {
+  // Make sure it exists.
+  int filefd = creat(path, 0755);
+  assert(filefd != -1);
+  assert(close(filefd) == 0);
+  assert(access(path, F_OK) == 0);
+
+  // Then delete it.
+  assert(sys_unlinkat(fd, path, 0) == 0);
+
+  // Make sure it's gone.
+  assert(access(path, F_OK) != 0);
+}
+
+// Check we can rmdirs.
+static void unlinkat_dir(int fd, char *path) {
+  // Create the dir first.
+  assert(mkdir(path, 0755) == 0);
+
+  // Make sure it exists.
+  assert(access(path, F_OK) == 0);
+
+  // Then delete it.
+  assert(sys_unlinkat(fd, path, AT_REMOVEDIR) == 0);
+
+  // Make sure it's gone.
+  assert(access(path, F_OK) != 0);
+}
+
 int main(int argc, char *argv[]) {
-  int fd;
-  void *ptr;
-
-  fd = sys_open("/dev/zero", O_RDONLY, 0);
+  // Get a unique path to play with.
+  char path[] = "tempfile.XXXXXX";
+  int fd = mkstemp(path);
   assert(fd != -1);
+  assert(close(fd) == 0);
+  assert(unlink(path) == 0);
 
-  ptr = sys_mmap(NULL, 0x1000, PROT_READ|PROT_WRITE, MAP_PRIVATE, fd, 0);
-  assert(ptr != MAP_FAILED);
+  // First test AT_FDCWD.
+  unlinkat_file(AT_FDCWD, path);
+  unlinkat_dir(AT_FDCWD, path);
 
-  assert(*(unsigned long *)ptr == 0);
-
-  assert(sys_munmap(ptr, 0x1000) == 0);
-
-  assert(sys_close(fd) == 0);
+  // Then test a real directory handle.
+  fd = open(".", O_DIRECTORY);
+  assert(fd != -1);
+  unlinkat_file(fd, path);
+  unlinkat_dir(fd, path);
+  assert(close(fd) == 0);
 
   return 0;
 }

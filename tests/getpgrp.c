@@ -30,20 +30,11 @@
 #include "test_skel.h"
 
 int main(int argc, char *argv[]) {
-  int fd;
-  void *ptr;
+  // Create a new process group to check.
+  assert(setpgrp() == 0);
 
-  fd = sys_open("/dev/zero", O_RDONLY, 0);
-  assert(fd != -1);
-
-  ptr = sys_mmap(NULL, 0x1000, PROT_READ|PROT_WRITE, MAP_PRIVATE, fd, 0);
-  assert(ptr != MAP_FAILED);
-
-  assert(*(unsigned long *)ptr == 0);
-
-  assert(sys_munmap(ptr, 0x1000) == 0);
-
-  assert(sys_close(fd) == 0);
+  // Make sure it's right.
+  assert(getpid() == sys_getpgrp());
 
   return 0;
 }
