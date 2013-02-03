@@ -1,0 +1,6 @@
+/clone
+/lseek
+/mmap
+/open
+/statfs
+/*_test
