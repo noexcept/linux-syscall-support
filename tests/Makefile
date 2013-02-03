@@ -40,9 +40,26 @@ CPPFLAGS += -I$(top_srcdir)
 LDFLAGS += -static
 
 TESTS = \
+	clone \
+	dup \
+	dup2 \
+	dup3 \
 	fallocate \
+	fork \
+	getpgrp \
+	mmap \
+	open \
+	open-cpp \
+	openat \
+	pipe \
+	pipe2 \
+	prctl \
+	read \
+	readlink \
 	sigtimedwait \
 	unlink \
+	unlinkat \
+	write \
 
 all: check
 
