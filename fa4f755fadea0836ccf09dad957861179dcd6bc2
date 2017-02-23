@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd17879a_55c904ec",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2477,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-02-23T20:03:05Z",
+      "side": 1,
+      "message": "can you do the same clean up here ?",
+      "revId": "fa4f755fadea0836ccf09dad957861179dcd6bc2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b498789_9e8259af",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2597,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-02-23T20:03:05Z",
+      "side": 1,
+      "message": "the inner parens aren\u0027t needed\n\n if (fn \u003d\u003d NULL || child_stack \u003d\u003d NULL)",
+      "revId": "fa4f755fadea0836ccf09dad957861179dcd6bc2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
