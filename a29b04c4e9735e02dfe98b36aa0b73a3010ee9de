@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "49d3cc93_5d25ed25",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2654,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2017-02-23T17:47:03Z",
+      "side": 1,
+      "message": "This assembly argument -- %1 -- is unused now.  Can you remove it, please?",
+      "range": {
+        "startLine": 2654,
+        "startChar": 31,
+        "endLine": 2654,
+        "endChar": 43
+      },
+      "revId": "a29b04c4e9735e02dfe98b36aa0b73a3010ee9de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
