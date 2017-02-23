@@ -2594,23 +2594,15 @@ struct kernel_statfs {
                                    int flags, void *arg, int *parent_tidptr,
                                    void *newtls, int *child_tidptr) {
       long __res;
-      {
+      if ((fn == NULL) || (child_stack == NULL)) {
+        __res = -EINVAL;
+      } else {
         register int   __flags __asm__("r0") = flags;
         register void *__stack __asm__("r1") = child_stack;
         register void *__ptid  __asm__("r2") = parent_tidptr;
         register void *__tls   __asm__("r3") = newtls;
         register int  *__ctid  __asm__("r4") = child_tidptr;
-        __asm__ __volatile__(/* if (fn == NULL || child_stack == NULL)
-                              *   return -EINVAL;
-                              */
-                             "cmp   %2,#0\n"
-                             "it    ne\n"
-                             "cmpne %3,#0\n"
-                             "it    eq\n"
-                             "moveq %0,%1\n"
-                             "beq   1f\n"
-
-                             /* Push "arg" and "fn" onto the stack that will be
+        __asm__ __volatile__(/* Push "arg" and "fn" onto the stack that will be
                               * used by the child.
                               */
                              "str   %5,[%3,#-4]!\n"
