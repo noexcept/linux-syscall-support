@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "a0ed4a70_9da2fce0",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2477,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-02-23T20:43:59Z",
+      "side": 1,
+      "message": "if you just want to do a compile time test, you can use:\n\n#define _GNU_SOURCE\n#include \u003csched.h\u003e\n#include \"linux_syscall_support.h\"\nchar stack[32 * 1024];\nint cb(void *arg) { return 0; }\nint main(int argc, char *argv[])\n{\n      return sys_clone(\n        cb, stack, CLONE_FILES | CLONE_FS | CLONE_UNTRACED, \u0026argc,\n        NULL, NULL, NULL);\n}\n\ni think you\u0027ll need like -march\u003darmv3 too for this",
+      "parentUuid": "6ffc32c8_fa6c81ae",
+      "revId": "fa4f755fadea0836ccf09dad957861179dcd6bc2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7b498789_9e8259af",
         "filename": "linux_syscall_support.h",
         "patchSetId": 2
