@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "d35e0658_2599e8cd",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2477,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2017-02-24T01:02:39Z",
+      "side": 1,
+      "message": "Amaury, if you want to push back on requests to do additional cleanups, I support that, on the grounds that linux_syscall_support.h has no test suite or bots, so it\u0027s difficult to test extra cleanups.",
+      "parentUuid": "a0ed4a70_9da2fce0",
+      "revId": "fa4f755fadea0836ccf09dad957861179dcd6bc2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7b498789_9e8259af",
         "filename": "linux_syscall_support.h",
         "patchSetId": 2
