@@ -2596,65 +2596,69 @@ struct kernel_statfs {
       long __res;
       if (fn == NULL || child_stack == NULL) {
         __res = -EINVAL;
-      } else {
+        LSS_RETURN(int, __res);
+      }
+
+      /* Push "arg" and "fn" onto the stack that will be
+       * used by the child.
+       */
+      {
+        uint32_t* cstack = (uint32_t*)child_stack - 2;
+        cstack[0] = (uint32_t)fn;
+        cstack[1] = (uint32_t)arg;
+        child_stack = cstack;
+      }
+      {
         register int   __flags __asm__("r0") = flags;
         register void *__stack __asm__("r1") = child_stack;
         register void *__ptid  __asm__("r2") = parent_tidptr;
         register void *__tls   __asm__("r3") = newtls;
         register int  *__ctid  __asm__("r4") = child_tidptr;
-        __asm__ __volatile__(/* Push "arg" and "fn" onto the stack that will be
-                              * used by the child.
-                              */
-                             "str   %4,[%2,#-4]!\n"
-                             "str   %1,[%2,#-4]!\n"
+        __asm__ __volatile__(
+#ifdef __thumb2__
+            "push {r7}\n"
+#endif
+            /* %r0 = syscall(%r0 = flags,
+             *               %r1 = child_stack,
+             *               %r2 = parent_tidptr,
+             *               %r3 = newtls,
+             *               %r4 = child_tidptr)
+             */
+            "mov r7, %6\n"
+            "swi 0x0\n"
 
-                             /* %r0 = syscall(%r0 = flags,
-                              *               %r1 = child_stack,
-                              *               %r2 = parent_tidptr,
-                              *               %r3 = newtls,
-                              *               %r4 = child_tidptr)
-                              */
-                             "mov r7, %8\n"
-                             "swi 0x0\n"
+            /* if (%r0 != 0)
+             *   return %r0;
+             */
+            "cmp   r0, #0\n"
+            "bne   1f\n"
 
-                             /* if (%r0 != 0)
-                              *   return %r0;
-                              */
-                             "movs  %0,r0\n"
-                             "bne   1f\n"
+            /* In the child, now. Call "fn(arg)".
+             */
+            "ldr   r0,[sp, #4]\n"
 
-                             /* In the child, now. Call "fn(arg)".
-                              */
-                             "ldr   r0,[sp, #4]\n"
+            "ldr   lr,[sp]\n"
+            "blx   lr\n"
 
-                             /* When compiling for Thumb-2 the "MOV LR,PC" here
-                              * won't work because it loads PC+4 into LR,
-                              * whereas the LDR is a 4-byte instruction.
-                              * This results in the child thread always
-                              * crashing with an "Illegal Instruction" when it
-                              * returned into the middle of the LDR instruction
-                              * The instruction sequence used instead was
-                              * recommended by
-                              * "https://wiki.edubuntu.org/ARM/Thumb2PortingHowto#Quick_Reference".
-                              */
-                           #ifdef __thumb2__
-                             "ldr   r7,[sp]\n"
-                             "blx   r7\n"
-                           #else
-                             "mov   lr,pc\n"
-                             "ldr   pc,[sp]\n"
-                           #endif
-
-                             /* Call _exit(%r0).
-                              */
-                             "mov r7, %9\n"
-                             "swi 0x0\n"
-                           "1:\n"
-                             : "=r" (__res)
-                             : "r"(fn), "r"(__stack), "r"(__flags), "r"(arg),
-                               "r"(__ptid), "r"(__tls), "r"(__ctid),
-                               "i"(__NR_clone), "i"(__NR_exit)
-                             : "cc", "r7", "lr", "memory");
+            /* Call _exit(%r0).
+             */
+            "mov r7, %7\n"
+            "swi 0x0\n"
+            /* Unreachable */
+            "bkpt #0\n"
+         "1:\n"
+#ifdef __thumb2__
+            "pop {r7}\n"
+#endif
+            "movs  %0,r0\n"
+            : "=r"(__res)
+            : "r"(__stack), "r"(__flags), "r"(__ptid), "r"(__tls), "r"(__ctid),
+              "i"(__NR_clone), "i"(__NR_exit)
+#ifdef __thumb2__
+            : "cc", "lr", "memory");
+#else
+            : "cc", "r7", "lr", "memory");
+#endif
       }
       LSS_RETURN(int, __res);
     }
