@@ -2594,7 +2594,7 @@ struct kernel_statfs {
     LSS_INLINE int LSS_NAME(clone)(int (*fn)(void *), void *child_stack,
                                    int flags, void *arg, int *parent_tidptr,
                                    void *newtls, int *child_tidptr) {
-      long __res;
+      register long __res __asm__("r5");
       if (fn == NULL || child_stack == NULL) {
         __res = -EINVAL;
       } else {
