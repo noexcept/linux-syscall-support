@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b92d7eec_8a4da751",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2597,
+      "author": {
+        "id": 1200587
+      },
+      "writtenOn": "2017-05-02T18:14:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "934960e5_856d23c9",
+      "revId": "5801a2247993c51379a98117cf587602d8b55132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d564b8ca_f1b28c06",
         "filename": "linux_syscall_support.h",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-04-28T19:30:39Z",
       "side": 1,
       "message": "An alternative would be to change this part to:\n\n \"cmp r0, #0\\n\"\n \"bne 1f\\n\"\n ...\n #ifdef __thumb2__\n \"pop {r7}\\n\"\n #endif\n \"mov %0, r0\"\n\nThat is the approach taken in the other proposed fix (https://chromium-review.googlesource.com/#/c/466548/).  Either approach is OK with me.",
+      "revId": "5801a2247993c51379a98117cf587602d8b55132",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd8ca5ef_a2431b22",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2627,
+      "author": {
+        "id": 1200587
+      },
+      "writtenOn": "2017-05-02T18:14:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d564b8ca_f1b28c06",
       "revId": "5801a2247993c51379a98117cf587602d8b55132",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
