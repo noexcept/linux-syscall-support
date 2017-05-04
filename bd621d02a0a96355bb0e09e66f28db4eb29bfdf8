@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7010ed8c_c11c9dc4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2017-05-04T18:00:36Z",
+      "side": 1,
+      "message": "Nit: should be \"__res\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 198,
+        "endLine": 9,
+        "endChar": 203
+      },
+      "revId": "bd621d02a0a96355bb0e09e66f28db4eb29bfdf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbb5a9a5_f9e6f163",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2017-05-04T18:00:36Z",
+      "side": 1,
+      "message": "\"corrupted\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 207,
+        "endLine": 9,
+        "endChar": 216
+      },
+      "revId": "bd621d02a0a96355bb0e09e66f28db4eb29bfdf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b4f56feb_2ea84654",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2627,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2017-05-04T18:00:36Z",
+      "side": 1,
+      "message": "Nit: can you add 1 space before r0 so that it lines up with the next line?",
+      "range": {
+        "startLine": 2627,
+        "startChar": 35,
+        "endLine": 2627,
+        "endChar": 37
+      },
+      "revId": "bd621d02a0a96355bb0e09e66f28db4eb29bfdf8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
