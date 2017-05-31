@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92d4002f_1fe9c4ac",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2607,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-05-31T22:00:29Z",
+      "side": 1,
+      "message": "i think you want to use uintptr_t for your cast here (and below)",
+      "revId": "37d4e1de12c939118058d0577989cff7ce99113f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "304b09c9_d89e9e62",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2661,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-05-31T22:00:29Z",
+      "side": 1,
+      "message": "you should be able to write something like:\n\n : \"cc\", \"lr\", \"memory\"\n#ifdef __thumb2__\n    , \"r7\"\n#endif\n );\n\nnot exactly better, but helps with keeping common code common",
+      "range": {
+        "startLine": 2657,
+        "startChar": 0,
+        "endLine": 2661,
+        "endChar": 6
+      },
+      "revId": "37d4e1de12c939118058d0577989cff7ce99113f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
