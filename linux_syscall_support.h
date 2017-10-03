@@ -1178,6 +1178,11 @@ struct kernel_statfs {
 #ifndef __NR_getdents64
 #define __NR_getdents64         217
 #endif
+#if defined(__ANDROID__) && defined(__x86_64__)
+// Android x86_64 doesn't allow getdents
+#undef __NR_getdents
+#define __NR_getdents           __NR_getdents64
+#endif
 #ifndef __NR_set_tid_address
 #define __NR_set_tid_address    218
 #endif
@@ -3338,7 +3343,7 @@ struct kernel_statfs {
   LSS_INLINE _syscall2(int,     clock_gettime,   int,         c,
                        struct kernel_timespec*, t)
   LSS_INLINE _syscall1(int,     dup,             int,         f)
-  #if !defined(__aarch64__)
+  #if !defined(__aarch64__) && (!defined(__ANDROID__) || !defined(__x86_64__))
     // The dup2 syscall has been deprecated on aarch64. We polyfill it below.
     LSS_INLINE _syscall2(int,     dup2,            int,         s,
                          int,            d)
@@ -3349,7 +3354,7 @@ struct kernel_statfs {
   LSS_INLINE _syscall1(int,     exit_group,      int,         e)
   LSS_INLINE _syscall3(int,     fcntl,           int,         f,
                        int,            c, long,   a)
-  #if !defined(__aarch64__)
+  #if !defined(__aarch64__) && (!defined(__ANDROID__) || !defined(__x86_64__))
     // The fork syscall has been deprecated on aarch64. We polyfill it below.
     LSS_INLINE _syscall0(pid_t,   fork)
   #endif
@@ -3375,7 +3380,7 @@ struct kernel_statfs {
                       struct kernel_dirent64*, d, int,    c)
   LSS_INLINE _syscall0(gid_t,   getegid)
   LSS_INLINE _syscall0(uid_t,   geteuid)
-  #if !defined(__aarch64__)
+  #if !defined(__aarch64__) && !defined(__ANDROID__)
     // The getgprp syscall has been deprecated on aarch64.
     LSS_INLINE _syscall0(pid_t,   getpgrp)
   #endif
@@ -3437,7 +3442,7 @@ struct kernel_statfs {
   LSS_INLINE _syscall5(void*,   _mremap,         void*,       o,
                        size_t,         os,       size_t,      ns,
                        unsigned long,  f, void *, a)
-  #if !defined(__aarch64__)
+  #if !defined(__aarch64__) && (!defined(__ANDROID__) || !defined(__x86_64__))
     // The open and poll syscalls have been deprecated on aarch64. We polyfill
     // them below.
     LSS_INLINE _syscall3(int,     open,            const char*, p,
@@ -3459,7 +3464,7 @@ struct kernel_statfs {
   #endif
   LSS_INLINE _syscall3(ssize_t, read,            int,         f,
                        void *,         b, size_t, c)
-  #if !defined(__aarch64__)
+  #if !defined(__aarch64__) && (!defined(__ANDROID__) || !defined(__x86_64__))
     // The readlink syscall has been deprecated on aarch64. We polyfill below.
     LSS_INLINE _syscall3(int,     readlink,        const char*, p,
                          char*,          b, size_t, s)
@@ -3500,7 +3505,7 @@ struct kernel_statfs {
   #if defined(__NR_sigreturn)
     LSS_INLINE _syscall1(int,     sigreturn,       unsigned long, u)
   #endif
-  #if !defined(__aarch64__)
+  #if !defined(__aarch64__) && (!defined(__ANDROID__) || !defined(__x86_64__))
     // The stat syscall has been deprecated on aarch64. We polyfill it below.
     LSS_INLINE _syscall2(int,     stat,            const char*, f,
                         struct kernel_stat*,   b)
@@ -3511,7 +3516,7 @@ struct kernel_statfs {
                        pid_t,          t, int,            s)
   LSS_INLINE _syscall2(int,     tkill,           pid_t,       p,
                        int,            s)
-  #if !defined(__aarch64__)
+  #if !defined(__aarch64__) && (!defined(__ANDROID__) || !defined(__x86_64__))
     // The unlink syscall has been deprecated on aarch64. We polyfill it below.
     LSS_INLINE _syscall1(int,     unlink,           const char*, f)
   #endif
@@ -3680,7 +3685,7 @@ struct kernel_statfs {
   #if defined(__x86_64__) || defined(__ARM_ARCH_3__) ||                       \
       defined(__ARM_EABI__) || defined(__aarch64__) ||                        \
      (defined(__mips__) && _MIPS_SIM != _MIPS_SIM_ABI32) ||                   \
-      defined(__s390__)
+      defined(__s390__) || defined(__ANDROID__)
     LSS_INLINE _syscall4(pid_t, wait4,            pid_t, p,
                          int*,                    s, int,       o,
                         struct kernel_rusage*,     r)
@@ -4193,8 +4198,9 @@ struct kernel_statfs {
                          const char *,      p,
                          struct kernel_stat64 *,   b,    int,   f)
   #endif
-  #if defined(__i386__) || defined(__PPC__) ||                                \
-     (defined(__mips__) && _MIPS_SIM == _MIPS_SIM_ABI32)
+  #if (defined(__i386__) || defined(__PPC__) ||                               \
+       (defined(__mips__) && _MIPS_SIM == _MIPS_SIM_ABI32)) &&                \
+      !defined(__ANDROID__)
     LSS_INLINE _syscall3(pid_t, waitpid,          pid_t, p,
                          int*,              s,    int,   o)
   #endif
@@ -4221,8 +4227,8 @@ struct kernel_statfs {
         return 0;
       }
     }
-  #elif !defined(__aarch64__)
-    // The unlink syscall has been deprecated on aarch64. We polyfill it below.
+  #elif !defined(__aarch64__) && (!defined(__ANDROID__) || !defined(__x86_64__))
+    // The pipe syscall has been deprecated on aarch64. We polyfill it below.
     LSS_INLINE _syscall1(int,     pipe,           int *, p)
   #endif
   /* TODO(csilvers): see if ppc can/should support this as well              */
@@ -4401,10 +4407,8 @@ struct kernel_statfs {
   #endif
 #endif
 
-#if defined(__aarch64__)
+#if defined(__aarch64__) || (defined(__ANDROID__) && defined(__x86_64__))
   LSS_INLINE _syscall3(int, dup3,  int, s, int, d, int, f)
-  LSS_INLINE _syscall4(int, newfstatat, int, dirfd, const char *, pathname,
-                       struct kernel_stat *, buf, int, flags)
   LSS_INLINE _syscall2(int, pipe2, int *, pipefd, int, flags)
   LSS_INLINE _syscall5(int, ppoll, struct kernel_pollfd *, u,
                        unsigned int, n, const struct kernel_timespec *, t,
@@ -4413,11 +4417,16 @@ struct kernel_statfs {
                        size_t, s)
 #endif
 
+#if defined(__aarch64__)
+  LSS_INLINE _syscall4(int, newfstatat, int, dirfd, const char *, pathname,
+                       struct kernel_stat *, buf, int, flags)
+#endif
+
 /*
  * Polyfills for deprecated syscalls.
  */
 
-#if defined(__aarch64__)
+#if defined(__aarch64__) || (defined(__ANDROID__) && defined(__x86_64__))
   LSS_INLINE int LSS_NAME(dup2)(int s, int d) {
     return LSS_NAME(dup3)(s, d, 0);
   }
@@ -4456,7 +4465,9 @@ struct kernel_statfs {
                                 struct kernel_stat *buf) {
     return LSS_NAME(newfstatat)(AT_FDCWD, pathname, buf, 0);
   }
+#endif
 
+#if defined(__aarch64__)
   LSS_INLINE pid_t LSS_NAME(fork)(void) {
     // No fork syscall on aarch64 - implement by means of the clone syscall.
     // Note that this does not reset glibc's cached view of the PID/TID, so
@@ -4474,6 +4485,13 @@ struct kernel_statfs {
     LSS_REG(4, child_tidptr);
     LSS_BODY(pid_t, clone, "r"(__r0), "r"(__r1), "r"(__r2), "r"(__r3),
              "r"(__r4));
+  }
+#endif
+
+#if defined(__ANDROID__) && defined(__x86_64__)
+  LSS_INLINE pid_t LSS_NAME(fork)(void) {
+    // TODO - this needs polyfilling
+    return -1;
   }
 #endif
 
