@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dadbe825_bf5aca70",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 4493,
+      "author": {
+        "id": 1144624
+      },
+      "writtenOn": "2017-10-04T20:25:10Z",
+      "side": 1,
+      "message": "Should be something like:\n\nsysno into %rax\n\nClone args should all be NULL except for flags being SIGCHLD, then arg order would be:\n\n%rdi (flags), %rsi (child_stack), %rdx (parent_tid), %r10 (child_tid), %r8 (tls)\n\nhttp://man7.org/linux/man-pages/man2/syscall.2.html\n\nDo note this wonderful syscall declaration: http://elixir.free-electrons.com/linux/latest/source/kernel/fork.c#L2123\n\nBut CLONE_BACKWARDS is only for 32-bit kernel http://elixir.free-electrons.com/linux/latest/source/arch/x86/Kconfig#L15.",
+      "revId": "b4e80aac78127075dc4612717d7ee61d0999a1ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
