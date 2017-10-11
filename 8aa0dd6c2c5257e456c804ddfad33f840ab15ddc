@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "c8e556bf_fa63527f",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3680,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-10-11T15:19:53Z",
+      "side": 1,
+      "message": "i added a comment somewhere but i guess it got lost.  i understand this arch will have these defined, so #undef all the \"bad\" syscalls at the top under a single android/x86_64 check.",
+      "parentUuid": "5fc15da8_f461c5dd",
+      "revId": "8aa0dd6c2c5257e456c804ddfad33f840ab15ddc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "716ebdd7_fd794ee8",
         "filename": "linux_syscall_support.h",
         "patchSetId": 3
