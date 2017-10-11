@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "902fdc62_4a9f5b51",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-10-11T03:47:17Z",
+      "side": 1,
+      "message": "what do you mean by \"disallow\" ?  are you talking about selinux or seccomp or something else ?  that should be clear here.",
+      "revId": "8aa0dd6c2c5257e456c804ddfad33f840ab15ddc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec8a6591_a762eca6",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3680,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-10-11T03:47:17Z",
+      "side": 1,
+      "message": "this looks like it should be a __NR_wait4 check instead, and a !__NR_waitpid wrapping below",
+      "revId": "8aa0dd6c2c5257e456c804ddfad33f840ab15ddc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "716ebdd7_fd794ee8",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4405,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-10-11T03:47:17Z",
+      "side": 1,
+      "message": "these should all be protected by __NR_xxx checks, not any arch check",
+      "revId": "8aa0dd6c2c5257e456c804ddfad33f840ab15ddc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
