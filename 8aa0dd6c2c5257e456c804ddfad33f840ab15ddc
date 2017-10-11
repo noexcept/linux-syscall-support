@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "34c017d2_5063fa09",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1109505
+      },
+      "writtenOn": "2017-10-11T15:07:53Z",
+      "side": 1,
+      "message": "Huh. I updated this commit message but gerrit hasn\u0027t changed..",
+      "parentUuid": "902fdc62_4a9f5b51",
+      "revId": "8aa0dd6c2c5257e456c804ddfad33f840ab15ddc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ec8a6591_a762eca6",
         "filename": "linux_syscall_support.h",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "5fc15da8_f461c5dd",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3680,
+      "author": {
+        "id": 1109505
+      },
+      "writtenOn": "2017-10-11T15:07:53Z",
+      "side": 1,
+      "message": "For the other arches maybe, but for android that won\u0027t work, because __NR_waitpid is defined.",
+      "parentUuid": "ec8a6591_a762eca6",
+      "revId": "8aa0dd6c2c5257e456c804ddfad33f840ab15ddc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "716ebdd7_fd794ee8",
         "filename": "linux_syscall_support.h",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2017-10-11T03:47:17Z",
       "side": 1,
       "message": "these should all be protected by __NR_xxx checks, not any arch check",
+      "revId": "8aa0dd6c2c5257e456c804ddfad33f840ab15ddc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f532ea79_b17c2aa9",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4405,
+      "author": {
+        "id": 1109505
+      },
+      "writtenOn": "2017-10-11T15:07:53Z",
+      "side": 1,
+      "message": "That won\u0027t work for the android + x86_64 condition, because the syscall numbers are defined - you just die with SIGSYS if you actually call them. (otherwise this just wouldn\u0027t have compiled at all before..)",
+      "parentUuid": "716ebdd7_fd794ee8",
       "revId": "8aa0dd6c2c5257e456c804ddfad33f840ab15ddc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
