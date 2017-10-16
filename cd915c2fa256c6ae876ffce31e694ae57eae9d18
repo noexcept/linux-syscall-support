@@ -36,6 +36,74 @@
     },
     {
       "key": {
+        "uuid": "0968ecfa_58f7e449",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4425,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-10-16T19:46:34Z",
+      "side": 1,
+      "message": "this should be moved up to the common list of syscalls.  we want dup3 to be available whenever __NR_dup3 is available rather than making it dependent upon dup2.",
+      "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "51e21cd6_0f43fd10",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4444,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-10-16T19:46:34Z",
+      "side": 1,
+      "message": "same comment above as dup3",
+      "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "684f739d_635b4ee5",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4453,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-10-16T19:46:34Z",
+      "side": 1,
+      "message": "same comment above as dup3",
+      "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f17297fc_d8e9e86c",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4460,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-10-16T19:46:34Z",
+      "side": 1,
+      "message": "same comment above as dup3",
+      "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9bb216eb_58616112",
         "filename": "linux_syscall_support.h",
         "patchSetId": 5
