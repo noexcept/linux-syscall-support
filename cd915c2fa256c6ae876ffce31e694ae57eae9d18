@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2bc5c473_df637153",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-10-16T19:41:20Z",
+      "side": 1,
+      "message": "should we have a version check here ?  i\u0027m thinking of cases where we\u0027re building for an older android x86_64 kernel where the newer syscalls don\u0027t exist (not that i\u0027ve checked the relevant versions in any way to see if that scenario makes sense).",
+      "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "711874b8_33f212f5",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 3637,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-10-16T19:41:20Z",
+      "side": 1,
+      "message": "indent is off",
+      "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bb216eb_58616112",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4511,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-10-16T19:41:20Z",
+      "side": 1,
+      "message": "it seems like we should be able to make this the common version for all arches ?  i.e. delete __x86_64__ check and delete the aarch64 version above entirely ?",
+      "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
