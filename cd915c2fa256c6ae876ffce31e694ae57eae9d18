@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "c20381fb_20baf201",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-10-18T18:31:15Z",
+      "side": 1,
+      "message": "i checked back through 3.4 and it\u0027s the same.  you don\u0027t have to say \"it\u0027s required\" ... how about \"Been sanity checked against linux-3.4+, so older versions might not work.\".  we have to cut off support at some point.",
+      "parentUuid": "9b95d407_2a1350b8",
+      "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "711874b8_33f212f5",
         "filename": "linux_syscall_support.h",
         "patchSetId": 5
@@ -313,6 +331,24 @@
       "side": 1,
       "message": "Still needs handling of parameter order ifdef\u0027ed by architecture, no? I\u0027m not actually sure what the order is on each arch; the kernel has four options and they\u0027re just configured by REVERSED, REVERSED2 and REVERSED3, helpfully. I did check that x86_64 and aarch64 have the same order as best as I can tell from reading Kconfig.\n\nCould we maybe follow that up later, in any case? It\u0027d be good to land this and get some confidence that it hasn\u0027t broken anything so that it can eventually make it to stable and get us x86 crash data back on O.",
       "parentUuid": "de134069_892ac83d",
+      "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb78d148_071effc8",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4511,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-10-18T18:31:15Z",
+      "side": 1,
+      "message": "how about for this CL we write:\n\n#if !defined(__NR_fork)\n// TODO: ...\n# if defined(__aarch64__)\n...\n# elif defined(__x86_64__)\n...\n# else\n#  error missing fork polyfill for this arch\n# endif\n#endif",
+      "parentUuid": "2499c596_b14505d0",
       "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
