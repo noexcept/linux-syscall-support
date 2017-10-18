@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "06e63d6e_40f8e45a",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 3651,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-10-18T19:19:38Z",
+      "side": 1,
+      "message": "indent on \"b\" is off :)",
+      "revId": "4f53ca0d32e4d84747de85fabbf8395f39f6fb5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
