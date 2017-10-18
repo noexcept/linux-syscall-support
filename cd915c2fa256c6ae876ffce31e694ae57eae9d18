@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "dd08689b_084e482f",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-10-18T17:46:20Z",
+      "side": 1,
+      "message": "since x86_64/android requires 3.16+, that makes things much easier.  i checked the syscalls back through 3.16, and while new ones were added, none of them were the ones you\u0027re dealing with here, so we can ignore it.\n\ncan you update the comment here to note that Android/x86_64 requires linux-3.16+ ?",
+      "parentUuid": "07047be9_4b872fc1",
+      "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "711874b8_33f212f5",
         "filename": "linux_syscall_support.h",
         "patchSetId": 5
@@ -241,6 +259,24 @@
       "side": 1,
       "message": "LSS_SYSCALL_ARG is only defined for x86_64 and also the clone() syscall params aren\u0027t always in the same order on all arches (the kernel defines four different orders).. both these implementations just copy parts of the arch-specific syscall macro expansions from above.\n\nI\u0027m not sure if there\u0027s a good way to write a common version for this; the levels of nested macro expansions are quite confusing.\n\nIf someone can suggest the right answer I\u0027ll happily include it, otherwise I might have to leave it like this..",
       "parentUuid": "9bb216eb_58616112",
+      "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "de134069_892ac83d",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4511,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2017-10-18T17:46:20Z",
+      "side": 1,
+      "message": "i would recommend sys_clone, but the API we expose for that isn\u0027t really a direct clone syscall.  namely, we don\u0027t allow NULL pointers :/.\n\nwhat if we added to common code:\n\n #define __NR_LSS_raw_clone __NR_clone\n LSS_INLINE _syscall5(pid_t, LSS_raw_clone, ...)\n\nthen you should be able to write a common fork shim on top of sys_LSS_raw_clone() right ?",
+      "parentUuid": "aa875dc7_bbad5d1c",
       "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
