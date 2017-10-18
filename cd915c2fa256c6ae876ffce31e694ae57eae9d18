@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "9b95d407_2a1350b8",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1109505
+      },
+      "writtenOn": "2017-10-18T18:00:23Z",
+      "side": 1,
+      "message": "It does not require 3.16+. It just happens that the default kernel version in the tree (basically the one used by the emulator) is 3.16 - vendors might be using any version as long as it implements whatever kernel features actually get tested for by CTS.\n\n(added suckiness: third party roms made by users often run much older kernel versions than official roms of the same android version because they may be stuck on the last kernel version officially released for that device for closed-source binary blob compatibility reasons - though obviously there\u0027s only so much we can do to support weird hacked up configs like this).",
+      "parentUuid": "dd08689b_084e482f",
+      "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "711874b8_33f212f5",
         "filename": "linux_syscall_support.h",
         "patchSetId": 5
@@ -277,6 +295,24 @@
       "side": 1,
       "message": "i would recommend sys_clone, but the API we expose for that isn\u0027t really a direct clone syscall.  namely, we don\u0027t allow NULL pointers :/.\n\nwhat if we added to common code:\n\n #define __NR_LSS_raw_clone __NR_clone\n LSS_INLINE _syscall5(pid_t, LSS_raw_clone, ...)\n\nthen you should be able to write a common fork shim on top of sys_LSS_raw_clone() right ?",
       "parentUuid": "aa875dc7_bbad5d1c",
+      "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2499c596_b14505d0",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4511,
+      "author": {
+        "id": 1109505
+      },
+      "writtenOn": "2017-10-18T18:00:23Z",
+      "side": 1,
+      "message": "Still needs handling of parameter order ifdef\u0027ed by architecture, no? I\u0027m not actually sure what the order is on each arch; the kernel has four options and they\u0027re just configured by REVERSED, REVERSED2 and REVERSED3, helpfully. I did check that x86_64 and aarch64 have the same order as best as I can tell from reading Kconfig.\n\nCould we maybe follow that up later, in any case? It\u0027d be good to land this and get some confidence that it hasn\u0027t broken anything so that it can eventually make it to stable and get us x86 crash data back on O.",
+      "parentUuid": "de134069_892ac83d",
       "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
