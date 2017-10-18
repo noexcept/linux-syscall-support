@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "07047be9_4b872fc1",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1109505
+      },
+      "writtenOn": "2017-10-18T15:16:27Z",
+      "side": 1,
+      "message": "The only version that can be checked at compile time is which platform version of the NDK is being compiled against, which for chromium is always the same. So, this wouldn\u0027t do anything unless we introduced runtime detection of some kind, which seems really unpleasant as an idea.\n\nx86_64 devices will be running at least android 5.x because that\u0027s when 64-bit support was added, which had kernel 3.16 in AOSP for generic (actual devices might be older or newer kernels).\n\nx86 devices will be running at least android 4.1 because that\u0027s the oldest version Chrome supports, which had kernel 3.0.31 in AOSP.\n\nNot sure how to figure out what kernel versions the relevant syscalls were added in, but if we can\u0027t assume all the replacement syscalls work on all supported devices we have a big problem. I believe it\u0027s safe to assume we don\u0027t care about kernels \u003c 3.0 or so.",
+      "parentUuid": "2bc5c473_df637153",
+      "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "711874b8_33f212f5",
         "filename": "linux_syscall_support.h",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2017-10-16T19:41:20Z",
       "side": 1,
       "message": "indent is off",
+      "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b923ecc_67685a7d",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 3637,
+      "author": {
+        "id": 1109505
+      },
+      "writtenOn": "2017-10-18T15:16:27Z",
+      "side": 1,
+      "message": "ah, it was already wrong in the source i cut and pasted. fixed :)",
+      "parentUuid": "711874b8_33f212f5",
       "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "cb3e9f8f_2bb8941b",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4425,
+      "author": {
+        "id": 1109505
+      },
+      "writtenOn": "2017-10-18T15:16:27Z",
+      "side": 1,
+      "message": "OK; they were separate before but there isn\u0027t really a good reason I guess :)",
+      "parentUuid": "0968ecfa_58f7e449",
+      "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "51e21cd6_0f43fd10",
         "filename": "linux_syscall_support.h",
         "patchSetId": 5
@@ -64,6 +118,24 @@
       "writtenOn": "2017-10-16T19:46:34Z",
       "side": 1,
       "message": "same comment above as dup3",
+      "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06394e3c_3c1c8c87",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4444,
+      "author": {
+        "id": 1109505
+      },
+      "writtenOn": "2017-10-18T15:16:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51e21cd6_0f43fd10",
       "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "f0d54564_b0686a5e",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4453,
+      "author": {
+        "id": 1109505
+      },
+      "writtenOn": "2017-10-18T15:16:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "684f739d_635b4ee5",
+      "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f17297fc_d8e9e86c",
         "filename": "linux_syscall_support.h",
         "patchSetId": 5
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "8d1eae7e_c42f39ae",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4460,
+      "author": {
+        "id": 1109505
+      },
+      "writtenOn": "2017-10-18T15:16:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f17297fc_d8e9e86c",
+      "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9bb216eb_58616112",
         "filename": "linux_syscall_support.h",
         "patchSetId": 5
@@ -115,6 +223,24 @@
       "writtenOn": "2017-10-16T19:41:20Z",
       "side": 1,
       "message": "it seems like we should be able to make this the common version for all arches ?  i.e. delete __x86_64__ check and delete the aarch64 version above entirely ?",
+      "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa875dc7_bbad5d1c",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4511,
+      "author": {
+        "id": 1109505
+      },
+      "writtenOn": "2017-10-18T15:16:27Z",
+      "side": 1,
+      "message": "LSS_SYSCALL_ARG is only defined for x86_64 and also the clone() syscall params aren\u0027t always in the same order on all arches (the kernel defines four different orders).. both these implementations just copy parts of the arch-specific syscall macro expansions from above.\n\nI\u0027m not sure if there\u0027s a good way to write a common version for this; the levels of nested macro expansions are quite confusing.\n\nIf someone can suggest the right answer I\u0027ll happily include it, otherwise I might have to leave it like this..",
+      "parentUuid": "9bb216eb_58616112",
       "revId": "cd915c2fa256c6ae876ffce31e694ae57eae9d18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
