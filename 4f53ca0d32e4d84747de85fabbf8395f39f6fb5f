@@ -16,6 +16,24 @@
       "revId": "4f53ca0d32e4d84747de85fabbf8395f39f6fb5f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e0ee5bc_02a5dce4",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 3651,
+      "author": {
+        "id": 1109505
+      },
+      "writtenOn": "2017-10-18T19:37:16Z",
+      "side": 1,
+      "message": "fixed, though i have no idea what this was supposed to be aligned to in the first place (probably somebody\u0027s tabstops, looking at the rest of the file)",
+      "parentUuid": "06e63d6e_40f8e45a",
+      "revId": "4f53ca0d32e4d84747de85fabbf8395f39f6fb5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
     }
   ]
 }
