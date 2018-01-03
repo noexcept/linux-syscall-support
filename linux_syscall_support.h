@@ -4119,8 +4119,10 @@ struct kernel_statx {
   LSS_INLINE _syscall2(int,     getitimer,       int,        w,
                        struct kernel_itimerval*, c)
   #if defined(__NR_getpgrp)
+    // getpgrp is polyfilled below when not available.
     LSS_INLINE _syscall0(pid_t,   getpgrp)
   #endif
+  LSS_INLINE _syscall1(pid_t,   getpgid,         pid_t,       p)
   LSS_INLINE _syscall0(pid_t,   getpid)
   LSS_INLINE _syscall0(pid_t,   getppid)
   LSS_INLINE _syscall2(int,     getpriority,     int,         a,
@@ -5320,6 +5322,12 @@ struct kernel_statx {
 #pragma pop_macro("pread64")
 #pragma pop_macro("pwrite64")
 #pragma pop_macro("getdents64")
+
+#if !defined(__NR_getpgrp)
+  LSS_INLINE pid_t LSS_NAME(getpgrp)(void) {
+    return LSS_NAME(getpgid)(0);
+  }
+#endif
 
 #if defined(__cplusplus) && !defined(SYS_CPLUSPLUS)
 }
