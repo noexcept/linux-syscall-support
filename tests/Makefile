@@ -46,6 +46,7 @@ TESTS = \
 	dup3 \
 	fallocate \
 	fork \
+	getpgid \
 	getpgrp \
 	mmap \
 	open \
