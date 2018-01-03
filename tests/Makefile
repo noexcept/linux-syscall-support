@@ -47,6 +47,7 @@ TESTS = \
 	fallocate \
 	fork \
 	getitimer \
+	getpgid \
 	getpgrp \
 	getrandom \
 	lstat \
