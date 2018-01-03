@@ -45,6 +45,7 @@ TESTS = \
 	dup2 \
 	dup3 \
 	fork \
+	getpgid \
 	getpgrp \
 	lseek \
 	mmap \
