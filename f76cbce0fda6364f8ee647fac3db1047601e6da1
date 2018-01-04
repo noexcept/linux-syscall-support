@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05b69610_2e7bc544",
+        "filename": "tests/Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2018-01-04T00:10:07Z",
+      "side": 1,
+      "message": "Presumably this block is just compile-testing on various targets?  Can you add a comment explaining what this does?",
+      "revId": "f76cbce0fda6364f8ee647fac3db1047601e6da1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "03852dff_3509bc5b",
+        "filename": "tests/Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2018-01-04T00:10:07Z",
+      "side": 1,
+      "message": "Can you indent inside the case/esac blocks for readability?",
+      "revId": "f76cbce0fda6364f8ee647fac3db1047601e6da1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7b6041d8_4ae1acb9",
+        "filename": "tests/Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2018-01-04T00:10:07Z",
+      "side": 1,
+      "message": "Presumably this is using the system-installed clang.  Does it require system-installed kernel headers too?  Can you add some documentation about general usage and assumptions like this?",
+      "revId": "f76cbce0fda6364f8ee647fac3db1047601e6da1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e1c8a0d6_79bbacbe",
+        "filename": "tests/Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2018-01-04T00:10:07Z",
+      "side": 1,
+      "message": "Not needed?",
+      "revId": "f76cbce0fda6364f8ee647fac3db1047601e6da1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8843f030_4822ff4d",
+        "filename": "tests/clone.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2018-01-04T00:10:07Z",
+      "side": 1,
+      "message": "Doesn\u0027t this exit the process rather than the thread?",
+      "revId": "f76cbce0fda6364f8ee647fac3db1047601e6da1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
