@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e8103597_22ef91af",
+        "filename": "tests/Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-01-04T00:21:20Z",
+      "side": 1,
+      "message": "sure.  i\u0027m not sure how portable this will be to other people as you need all these cross-compilers installed for it to work ... i have them, but i\u0027m unusual ;).",
+      "parentUuid": "05b69610_2e7bc544",
+      "revId": "f76cbce0fda6364f8ee647fac3db1047601e6da1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03852dff_3509bc5b",
         "filename": "tests/Makefile",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2018-01-04T00:10:07Z",
       "side": 1,
       "message": "Can you indent inside the case/esac blocks for readability?",
+      "revId": "f76cbce0fda6364f8ee647fac3db1047601e6da1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b412fc4_f5107dfd",
+        "filename": "tests/Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-01-04T00:21:20Z",
+      "side": 1,
+      "message": "sure.  diff code styles prefer indentation while others prefer to omit.  never know what people like :).",
+      "parentUuid": "03852dff_3509bc5b",
       "revId": "f76cbce0fda6364f8ee647fac3db1047601e6da1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "d7f5c826_c29506c6",
+        "filename": "tests/Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-01-04T00:21:20Z",
+      "side": 1,
+      "message": "clang doesn\u0027t require anything beyond gcc ... so yes, clang requires a C library \u0026 kernel headers in order to compile/link, but so does gcc.",
+      "parentUuid": "7b6041d8_4ae1acb9",
+      "revId": "f76cbce0fda6364f8ee647fac3db1047601e6da1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1c8a0d6_79bbacbe",
         "filename": "tests/Makefile",
         "patchSetId": 4
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "97db307f_fc8aec1c",
+        "filename": "tests/Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-01-04T00:21:20Z",
+      "side": 1,
+      "message": "the tests themselves create tempfiles that match these names.  normally they\u0027ll also clean them up, but if they don\u0027t (test failure/crash/whatever), this makes sure.  i\u0027ll add a comment.",
+      "parentUuid": "e1c8a0d6_79bbacbe",
+      "revId": "f76cbce0fda6364f8ee647fac3db1047601e6da1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8843f030_4822ff4d",
         "filename": "tests/clone.c",
         "patchSetId": 4
@@ -81,6 +153,24 @@
       "writtenOn": "2018-01-04T00:10:07Z",
       "side": 1,
       "message": "Doesn\u0027t this exit the process rather than the thread?",
+      "revId": "f76cbce0fda6364f8ee647fac3db1047601e6da1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91afba0b_341f768a",
+        "filename": "tests/clone.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-01-04T00:21:20Z",
+      "side": 1,
+      "message": "clone creates threads when CLONE_THREAD is used, otherwise it\u0027s a completely separate process.  you could implement every fork related syscall (fork/vfork/etc...) purely on top of clone.  in fact that\u0027s what what the Linux kernel implementation does for fork \u0026 vfork -- just call the clone implementation.",
+      "parentUuid": "8843f030_4822ff4d",
       "revId": "f76cbce0fda6364f8ee647fac3db1047601e6da1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
