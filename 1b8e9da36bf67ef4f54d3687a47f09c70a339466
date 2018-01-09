@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "05f6934b_b14fd9bf",
+        "filename": "tests/Makefile",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-01-09T05:38:02Z",
+      "side": 1,
+      "message": "iirc, it was for qemu, but it also makes strace simpler",
+      "parentUuid": "ccfb1cbc_e8574543",
+      "revId": "1b8e9da36bf67ef4f54d3687a47f09c70a339466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "77e29daf_f0fc377c",
         "filename": "tests/Makefile",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2018-01-09T01:16:37Z",
       "side": 1,
       "message": "Overly-broad wildcards in rm invocations worry me a bit, especially when \"make clean\" is invoked from the cross-compiling part.  Could you limit this to only deleting files that we know about, like $(TESTS:\u003d_test)?",
+      "revId": "1b8e9da36bf67ef4f54d3687a47f09c70a339466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d73cb375_199a22e4",
+        "filename": "tests/Makefile",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-01-09T05:38:02Z",
+      "side": 1,
+      "message": "i can, but if we get too many tests, we\u0027ll eventually run into the command line limit ;)",
+      "parentUuid": "77e29daf_f0fc377c",
       "revId": "1b8e9da36bf67ef4f54d3687a47f09c70a339466",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "d70edb90_4cf7dcbf",
+        "filename": "tests/Makefile",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-01-09T05:38:02Z",
+      "side": 1,
+      "message": "sure, i was trying to differentiate between execution only",
+      "parentUuid": "e6ba8d46_47d3fd61",
+      "range": {
+        "startLine": 71,
+        "startChar": 62,
+        "endLine": 71,
+        "endChar": 76
+      },
+      "revId": "1b8e9da36bf67ef4f54d3687a47f09c70a339466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c960a238_f411c02a",
         "filename": "tests/Makefile",
         "patchSetId": 5
@@ -70,6 +130,24 @@
       "writtenOn": "2018-01-09T01:16:37Z",
       "side": 1,
       "message": "Where do you get these compilers from?  Are there some \"apt-get install\" invocations that you can list in README.md as suggestions for how to install them?",
+      "revId": "1b8e9da36bf67ef4f54d3687a47f09c70a339466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d48a4b27_0fcd60b9",
+        "filename": "tests/Makefile",
+        "patchSetId": 5
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-01-09T05:38:02Z",
+      "side": 1,
+      "message": "they\u0027re created by hand.  something like crosstool-ng can produce them.  i\u0027m not sure they\u0027re readily available in most distros.",
+      "parentUuid": "c960a238_f411c02a",
       "revId": "1b8e9da36bf67ef4f54d3687a47f09c70a339466",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "7387c32c_8547d2e9",
+        "filename": "tests/Makefile",
+        "patchSetId": 5
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-01-09T05:38:02Z",
+      "side": 1,
+      "message": "it defines different compiler settings too, not just linking",
+      "parentUuid": "943179bf_f4d841c9",
+      "revId": "1b8e9da36bf67ef4f54d3687a47f09c70a339466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "514fea6b_38a8aee4",
         "filename": "tests/Makefile",
         "patchSetId": 5
@@ -110,6 +206,24 @@
     },
     {
       "key": {
+        "uuid": "787fa0be_c95b798a",
+        "filename": "tests/Makefile",
+        "patchSetId": 5
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-01-09T05:38:02Z",
+      "side": 1,
+      "message": "yeah, i couldn\u0027t get clang to handle mips o32 ABI correctly, or produce s390 31-bit code (although it works with s390x 64-bit).  if i could figure out how to get clang to do it (assuming it can), i would re-enable this.\n\nadding comments in shell code like this is a bit tricky.",
+      "parentUuid": "514fea6b_38a8aee4",
+      "revId": "1b8e9da36bf67ef4f54d3687a47f09c70a339466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "81fa998e_3eb33864",
         "filename": "tests/Makefile",
         "patchSetId": 5
@@ -121,6 +235,24 @@
       "writtenOn": "2018-01-09T01:16:37Z",
       "side": 1,
       "message": "Why this special case?  Is this assuming the host system is x86-64?  Could you add a comment to explain this?  (Do comments work here?)",
+      "revId": "1b8e9da36bf67ef4f54d3687a47f09c70a339466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6d321867_6a244c98",
+        "filename": "tests/Makefile",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-01-09T05:38:02Z",
+      "side": 1,
+      "message": "yeah, this is assuming the host system is x86_64.  not a great assumption, but this cross code is already \"best effort\" (at best).",
+      "parentUuid": "81fa998e_3eb33864",
       "revId": "1b8e9da36bf67ef4f54d3687a47f09c70a339466",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
@@ -150,6 +282,30 @@
     },
     {
       "key": {
+        "uuid": "efe3b492_7fdc4579",
+        "filename": "tests/README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-01-09T05:38:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cfbc564_ea1335e9",
+      "range": {
+        "startLine": 45,
+        "startChar": 28,
+        "endLine": 45,
+        "endChar": 63
+      },
+      "revId": "1b8e9da36bf67ef4f54d3687a47f09c70a339466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7f625b28_2f703ccc",
         "filename": "tests/test_skel.h",
         "patchSetId": 5
@@ -161,6 +317,24 @@
       "writtenOn": "2018-01-09T01:16:37Z",
       "side": 1,
       "message": "Doing this in a header file is dodgy because other things might be #included before test_skel.h.  Can you do \"-D_GNU_SOURCE\" in the makefile instead?",
+      "revId": "1b8e9da36bf67ef4f54d3687a47f09c70a339466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "034f88b5_9a8d021f",
+        "filename": "tests/test_skel.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-01-09T05:38:02Z",
+      "side": 1,
+      "message": "i agree it\u0027s a bit dodgy, but the docs say they should only be including this header ...\n\ni went this route as i thought it made more sense to keep these knobs with their users, and i wouldn\u0027t have to worry about properly overriding/appending the user\u0027s compile settings.  if the user does `make CFLAGS\u003d...` then most settings would get ignored w/out extra effort.\n\nif people do want to include their own headers first, they can manually define this knob too ...",
+      "parentUuid": "7f625b28_2f703ccc",
       "revId": "1b8e9da36bf67ef4f54d3687a47f09c70a339466",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
@@ -184,6 +358,24 @@
     },
     {
       "key": {
+        "uuid": "efecfb13_584b4d6e",
+        "filename": "tests/test_skel.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-01-09T05:38:02Z",
+      "side": 1,
+      "message": "it isn\u0027t because of side-effects ... the tests are entirely based on assert\u0027s passing.  NDEBUG deletes the asserts which means the tests wouldn\u0027t actually get checked anywhere.\n\ni\u0027ll add a comment.",
+      "parentUuid": "a9cffa6a_6c29cb6d",
+      "revId": "1b8e9da36bf67ef4f54d3687a47f09c70a339466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9a12ef2_b4942fe0",
         "filename": "tests/test_skel.h",
         "patchSetId": 5
@@ -201,6 +393,24 @@
     },
     {
       "key": {
+        "uuid": "708a8edb_393acee2",
+        "filename": "tests/test_skel.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-01-09T05:38:02Z",
+      "side": 1,
+      "message": "the point of splitting the CL up was to make it easier to review framework vs the tests rather than it actually being necessary.  seems like moving this would be busy work.",
+      "parentUuid": "d9a12ef2_b4942fe0",
+      "revId": "1b8e9da36bf67ef4f54d3687a47f09c70a339466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19b6cc04_6f042d88",
         "filename": "tests/unlink.c",
         "patchSetId": 5
@@ -212,6 +422,24 @@
       "writtenOn": "2018-01-09T01:16:37Z",
       "side": 1,
       "message": "How about something like \"tempfile\" rather than \"foo\"?",
+      "revId": "1b8e9da36bf67ef4f54d3687a47f09c70a339466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "77ae2f1b_ea893c88",
+        "filename": "tests/unlink.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-01-09T05:38:02Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "19b6cc04_6f042d88",
       "revId": "1b8e9da36bf67ef4f54d3687a47f09c70a339466",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": false
