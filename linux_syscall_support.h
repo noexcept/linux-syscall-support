@@ -4335,7 +4335,11 @@ struct kernel_statfs {
   }
 
   LSS_INLINE int LSS_NAME(sysconf)(int name) {
-    extern int __getpagesize(void);
+    extern int __getpagesize(void)
+#ifdef __cplusplus
+      noexcept
+#endif
+      ;
     switch (name) {
       case _SC_OPEN_MAX: {
         struct kernel_rlimit limit;
