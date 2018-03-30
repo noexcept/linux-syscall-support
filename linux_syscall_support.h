@@ -82,14 +82,14 @@
 #ifndef SYS_LINUX_SYSCALL_SUPPORT_H
 #define SYS_LINUX_SYSCALL_SUPPORT_H
 
-/* We currently only support x86-32, x86-64, ARM, MIPS, PPC, s390 and s390x
- * on Linux.
+/* We currently only support x86-32, x86-64, ARM, MIPS, PPC, PPC64, s390
+ * and s390x on Linux.
  * Porting to other related platforms should not be difficult.
  */
 #if (defined(__i386__) || defined(__x86_64__) || defined(__ARM_ARCH_3__) ||   \
      defined(__mips__) || defined(__PPC__) || defined(__ARM_EABI__) || \
-     defined(__aarch64__) || defined(__s390__)) \
-  && (defined(__linux) || defined(__ANDROID__))
+     defined(__aarch64__) || defined(__s390__)) || defined(__PPC64__) \
+  && (defined(__linux__) || defined(__ANDROID__))
 
 #ifndef SYS_CPLUSPLUS
 #ifdef __cplusplus
@@ -1528,6 +1528,9 @@ struct kernel_statfs {
 #endif
 #ifndef __NR_readahead
 #define __NR_readahead          191
+#endif
+#ifndef __NR_mmap2
+#define __NR_mmap2              192
 #endif
 #ifndef __NR_stat64
 #define __NR_stat64             195
@@ -3151,6 +3154,91 @@ struct kernel_statfs {
                                    void *newtls, int *child_tidptr) {
       long __ret, __err;
       {
+#if defined(__PPC64__)
+
+/* Stack frame offsets.  */
+#if _CALL_ELF != 2
+#define FRAME_MIN_SIZE         112
+#define FRAME_TOC_SAVE         40
+#else
+#define FRAME_MIN_SIZE         32
+#define FRAME_TOC_SAVE         24
+#endif
+
+        register int (*__fn)(void *) __asm__ ("r3") = fn;
+        register void *__cstack      __asm__ ("r4") = child_stack;
+        register int __flags         __asm__ ("r5") = flags;
+        register void * __arg        __asm__ ("r6") = arg;
+        register int * __ptidptr     __asm__ ("r7") = parent_tidptr;
+        register void * __newtls     __asm__ ("r8") = newtls;
+        register int * __ctidptr     __asm__ ("r9") = child_tidptr;
+        __asm__ __volatile__(
+            /* check for fn == NULL
+             * and child_stack == NULL
+             */
+            "cmpdi cr0, %6, 0\n\t"
+            "cmpdi cr1, %7, 0\n\t"
+            "cror  cr0*4+eq, cr1*4+eq, cr0*4+eq\n\t"
+            "beq-  cr0, 1f\n\t"
+
+            /* set up stack frame for child                                  */
+            "clrrdi %7, %7, 4\n\t"
+            "li     0, 0\n\t"
+            "stdu   0, -%13(%7)\n\t"
+
+            /* fn, arg, child_stack are saved acrVoss the syscall             */
+            "mr 28, %6\n\t"
+            "mr 29, %7\n\t"
+            "mr 27, %9\n\t"
+
+            /* syscall
+               r3 == flags
+               r4 == child_stack
+               r5 == parent_tidptr
+               r6 == newtls
+               r7 == child_tidptr                                            */
+            "mr 3, %8\n\t"
+            "mr 5, %10\n\t"
+            "mr 6, %11\n\t"
+            "mr 7, %12\n\t"
+            "li 0, %4\n\t"
+            "sc\n\t"
+
+            /* Test if syscall was successful                                */
+            "cmpdi  cr1, 3, 0\n\t"
+            "crandc cr1*4+eq, cr1*4+eq, cr0*4+so\n\t"
+            "bne-   cr1, 1f\n\t"
+
+            /* Do the function call                                          */
+            "std   2, %14(1)\n\t"
+#if _CALL_ELF != 2
+            "ld    0, 0(28)\n\t"
+            "ld    2, 8(28)\n\t"
+            "mtctr 0\n\t"
+#else
+            "mr    12, 28\n\t"
+            "mtctr 12\n\t"
+#endif
+            "mr    3, 27\n\t"
+            "bctrl\n\t"
+            "ld    2, %14(1)\n\t"
+
+            /* Call _exit(r3)                                                */
+            "li 0, %5\n\t"
+            "sc\n\t"
+
+            /* Return to parent                                              */
+            "1:\n\t"
+            "mr %0, 3\n\t"
+              : "=r" (__ret), "=r" (__err)
+              : "0" (-1), "i" (EINVAL),
+                "i" (__NR_clone), "i" (__NR_exit),
+                "r" (__fn), "r" (__cstack), "r" (__flags),
+                "r" (__arg), "r" (__ptidptr), "r" (__newtls),
+                "r" (__ctidptr), "i" (FRAME_MIN_SIZE), "i" (FRAME_TOC_SAVE)
+              : "cr0", "cr1", "memory", "ctr",
+                "r0", "r29", "r27", "r28");
+#else
         register int (*__fn)(void *)    __asm__ ("r8")  = fn;
         register void *__cstack                 __asm__ ("r4")  = child_stack;
         register int __flags                    __asm__ ("r3")  = flags;
@@ -3213,6 +3301,7 @@ struct kernel_statfs {
                 "r" (__ctidptr)
               : "cr0", "cr1", "memory", "ctr",
                 "r0", "r29", "r27", "r28");
+#endif
       }
       LSS_RETURN(int, __ret, __err);
     }
