@@ -411,6 +411,24 @@
     },
     {
       "key": {
+        "uuid": "80d8c4e7_46c9a7e1",
+        "filename": "tests/test_skel.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2018-05-04T19:21:49Z",
+      "side": 1,
+      "message": "Part of the reason I asked for these definitions to be removed is that I\u0027m not keen on these padding checks as-is: There are no comments on how to use them and it\u0027s not obvious how to use them.\n\nI think it would be better to replace them with a C++ template class that adds padding and checks the padding contents.  (I remember suggesting this in an earlier version of this CL.)\n\nWould you mind removing this, and then I\u0027ll be happy with committing this change?  It would be really good to get this committed.",
+      "parentUuid": "708a8edb_393acee2",
+      "revId": "1b8e9da36bf67ef4f54d3687a47f09c70a339466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19b6cc04_6f042d88",
         "filename": "tests/unlink.c",
         "patchSetId": 5
