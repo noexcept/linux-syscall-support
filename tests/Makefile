@@ -47,6 +47,7 @@ TESTS = \
 	fork \
 	getpgid \
 	getpgrp \
+	lseek \
 	mmap \
 	open \
 	open-cpp \
@@ -56,6 +57,7 @@ TESTS = \
 	prctl \
 	read \
 	readlink \
+	statfs \
 	unlink \
 	unlinkat \
 	write \
