@@ -3923,7 +3923,7 @@ struct kernel_statfs {
       LSS_REG(2, buf);
       LSS_BODY(void*, mmap2, "0"(__r2));
     }
-#else
+#elif defined(__NR_mmap2)
     #define __NR__mmap2 __NR_mmap2
     LSS_INLINE _syscall6(void*, _mmap2,            void*, s,
                          size_t,                   l, int,               p,
@@ -4031,21 +4031,7 @@ struct kernel_statfs {
       return rc;
     }
   #endif
-  #if defined(__i386__) ||                                                    \
-      defined(__ARM_ARCH_3__) || defined(__ARM_EABI__) ||                     \
-     (defined(__mips__) && _MIPS_SIM == _MIPS_SIM_ABI32) ||                   \
-      defined(__PPC__) ||                                                     \
-     (defined(__s390__) && !defined(__s390x__))
-    /* On these architectures, implement mmap() with mmap2(). */
-    LSS_INLINE void* LSS_NAME(mmap)(void *s, size_t l, int p, int f, int d,
-                                    int64_t o) {
-      if (o % 4096) {
-        LSS_ERRNO = EINVAL;
-        return (void *) -1;
-      }
-      return LSS_NAME(_mmap2)(s, l, p, f, d, (o / 4096));
-    }
-  #elif defined(__s390x__)
+  #if defined(__s390x__)
     /* On s390x, mmap() arguments are passed in memory. */
     LSS_INLINE void* LSS_NAME(mmap)(void *s, size_t l, int p, int f, int d,
                                     int64_t o) {
@@ -4062,6 +4048,16 @@ struct kernel_statfs {
       LSS_BODY(6, void*, mmap, LSS_SYSCALL_ARG(s), LSS_SYSCALL_ARG(l),
                                LSS_SYSCALL_ARG(p), LSS_SYSCALL_ARG(f),
                                LSS_SYSCALL_ARG(d), (uint64_t)(o));
+    }
+  #elif defined(__NR_mmap2)
+    /* On these architectures, implement mmap() with mmap2(). */
+    LSS_INLINE void* LSS_NAME(mmap)(void *s, size_t l, int p, int f, int d,
+                                    int64_t o) {
+      if (o % 4096) {
+        LSS_ERRNO = EINVAL;
+        return (void *) -1;
+      }
+      return LSS_NAME(_mmap2)(s, l, p, f, d, (o / 4096));
     }
   #else
     /* Remaining 64-bit architectures. */
