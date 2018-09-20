@@ -50,6 +50,7 @@ TESTS = \
 	getpgid \
 	getpgrp \
 	getrandom \
+	lseek \
 	lstat \
 	mmap \
 	open \
@@ -63,6 +64,7 @@ TESTS = \
 	sigaction \
 	sigtimedwait \
 	stat \
+	statfs \
 	unlink \
 	unlinkat \
 	write \
