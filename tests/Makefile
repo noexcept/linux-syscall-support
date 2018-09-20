@@ -44,6 +44,7 @@ TESTS = \
 	getitimer \
 	getrandom \
 	lstat \
+	mmap \
 	setitimer \
 	sigaction \
 	sigtimedwait \
