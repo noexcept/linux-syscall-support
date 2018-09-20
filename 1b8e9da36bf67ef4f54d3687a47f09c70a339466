@@ -429,6 +429,24 @@
     },
     {
       "key": {
+        "uuid": "24b512f8_3e3c0175",
+        "filename": "tests/test_skel.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-09-20T23:29:17Z",
+      "side": 1,
+      "message": "i\u0027ve removed the pad funcs here.  only two tests rely on them, so i can split out/merge the rest and delay discussion on that stuff w/out holding up all the unittest work.\n\ndoing C++ template implementations would imply converting all unittests to C++ which i\u0027m not keen on doing ... having \"simple\" standalone C files makes it easier to compile+test+statically link+execute for qemu.\n\nthe only saving grace atm is that the unittests themselves are quite small, so standing up a custom test framework doesn\u0027t make me hate myself too much.  if we wanted more, i\u0027d reach for gtest ...",
+      "parentUuid": "80d8c4e7_46c9a7e1",
+      "revId": "1b8e9da36bf67ef4f54d3687a47f09c70a339466",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19b6cc04_6f042d88",
         "filename": "tests/unlink.c",
         "patchSetId": 5
