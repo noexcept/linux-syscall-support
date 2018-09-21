@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "07b0c3b4_b0cfa799",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-09-21T03:41:28Z",
+      "side": 1,
+      "message": "in chromium, the recommendation flow is to use `git cl upload` everywhere.  they didn\u0027t change the tooling much when moving from rietveld to gerrit.\n\ni don\u0027t believe they document/recommend `git push ... refs/for/master` anywhere.",
+      "parentUuid": "e65ad775_8b51a60f",
+      "range": {
+        "startLine": 112,
+        "startChar": 6,
+        "endLine": 112,
+        "endChar": 21
+      },
+      "revId": "58ba48428dbc10d396a2528dd8f41ed5d0681ebb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0eb9be21_c1610f03",
         "filename": "README.md",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "58ba48428dbc10d396a2528dd8f41ed5d0681ebb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b6e4db11_f49ef6a4",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-09-21T03:41:28Z",
+      "side": 1,
+      "message": "i copied \u0026 pasted the link out of dev.chromium.org w/out thinking about it.  guess i need to fix that one too.",
+      "parentUuid": "0eb9be21_c1610f03",
+      "range": {
+        "startLine": 113,
+        "startChar": 25,
+        "endLine": 113,
+        "endChar": 29
+      },
+      "revId": "58ba48428dbc10d396a2528dd8f41ed5d0681ebb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
