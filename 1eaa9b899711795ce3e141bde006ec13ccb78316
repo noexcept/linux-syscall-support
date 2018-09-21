@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1659de5e_f5e20b15",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-09-21T00:31:06Z",
+      "side": 1,
+      "message": "add a tag here:\n\n Bug: linux-syscall-support:22",
+      "revId": "1eaa9b899711795ce3e141bde006ec13ccb78316",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78a58ecb_d647bfe5",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-09-21T00:31:06Z",
+      "side": 1,
+      "message": "should line wrap to keep under 80 cols.  just move the \"s390x\" down to the next line.",
+      "revId": "1eaa9b899711795ce3e141bde006ec13ccb78316",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd7af2b9_faf210cb",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1532,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-09-21T00:31:06Z",
+      "side": 1,
+      "message": "this is ppc32-specific, so you should wrap this definition in a PPC64 ifdef check\n\nsame goes for stat64/fstat64/fadvise64_64.  you also need to handle fstatat64-vs-newfstatat.",
+      "revId": "1eaa9b899711795ce3e141bde006ec13ccb78316",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa9437ed_8c508101",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3160,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-09-21T00:31:06Z",
+      "side": 1,
+      "message": "can you document where _CALL_ELF is coming from and what it means ?",
+      "revId": "1eaa9b899711795ce3e141bde006ec13ccb78316",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3acf55d4_ab2ec9db",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3168,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-09-21T00:31:06Z",
+      "side": 1,
+      "message": "only one blank line here",
+      "revId": "1eaa9b899711795ce3e141bde006ec13ccb78316",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91141e41_c48e685c",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3998,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-09-21T00:31:06Z",
+      "side": 1,
+      "message": "i\u0027ve sent you https://chromium-review.googlesource.com/c/linux-syscall-support/+/1237435 as a simpler way of handling this",
+      "revId": "1eaa9b899711795ce3e141bde006ec13ccb78316",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
