@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6347f56_0e051d57",
+        "filename": "tests/Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2018-09-21T19:03:08Z",
+      "side": 1,
+      "message": "Can you add that this is optional, and that an empty value means that QEMU is not used?\n\nCan you document this in the docs about running tests and give an example there?",
+      "revId": "2c81a0f390ecc181b8e663c09824b3481b406007",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
