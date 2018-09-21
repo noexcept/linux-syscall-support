@@ -39,6 +39,9 @@ CPPFLAGS += -I$(top_srcdir)
 # it's a lot easier to run/debug.  Same for strace output.
 LDFLAGS += -static
 
+# The qemu binary to run through for cross-arch support.
+QEMU =
+
 TESTS = \
 	clone \
 	dup \
@@ -83,15 +86,19 @@ all: check
 
 %_run: %_test
 	@t=$(@:_run=_test); \
-	echo "./$$t"; \
-	env -i ./$$t; \
+	echo "$(QEMU) ./$$t"; \
+	env -i $(QEMU) ./$$t; \
 	exit_status=$$?; \
 	if [ $$exit_status = 77 ]; then \
 		echo "SKIP: $$t"; \
 	elif [ $$exit_status != 0 ]; then \
 		echo "FAIL: $$t"; \
-		env -i strace -f -v ./$$t; \
-		echo "TRY: gdb -q -ex r -ex bt ./$$t"; \
+		if [ -n "$(QEMU)" ]; then \
+			env -i $(QEMU) -strace ./$$t; \
+		else \
+			env -i strace -f -v ./$$t; \
+			echo "TRY: gdb -q -ex r -ex bt ./$$t"; \
+		fi; \
 		exit 1; \
 	fi
 
@@ -113,36 +120,53 @@ clean:
 # Try to cross-compile the tests for all our supported arches.  We test with
 # both gcc and clang.  We don't support execution (yet?), but just compiling
 # & linking helps catch common bugs.
-.PHONY: cross compile_cross
-cross_compile:
-	@echo "Running: $(MAKE) $@ CC='$(CC)' CXX='$(CXX)'"; \
+.PHONY: cross compile_cross cross_single
+cross_single:
+	@echo "Running: $(MAKE) $@ CC='$(CC)' CXX='$(CXX)' QEMU='$(QEMU)'"; \
 	if (echo '#include <stdio.h>' | $(CC) -x c -c -o /dev/null -) 2>/dev/null; then \
 		$(MAKE) -s clean; \
-		$(MAKE) -k --no-print-directory compile_tests; \
+		if $(MAKE) -k --no-print-directory compile_tests; then \
+			if $(QEMU) --version >/dev/null 2>&1; then \
+				$(MAKE) -k --no-print-directory check; \
+			fi; \
+		fi; \
 	else \
 		echo "Skipping $(CC) test: not installed"; \
 	fi; \
 	echo
 
+cross_compile:
+	@$(MAKE) --no-print-directory QEMU=skip cross
+
 # The names here are a best effort.  Not easy to probe for.
 cross:
 	@for cc in \
-		"x86_64-pc-linux-gnu-gcc" \
-		"i686-pc-linux-gnu-gcc" \
-		"x86_64-pc-linux-gnu-gcc -mx32" \
-		"armv7a-unknown-linux-gnueabi-gcc -marm -mhard-float" \
-		"armv7a-unknown-linux-gnueabi-gcc -mthumb -mhard-float" \
-		"powerpc-unknown-linux-gnu-gcc" \
-		"aarch64-unknown-linux-gnu-gcc" \
-		"mips64-unknown-linux-gnu-gcc -mabi=64" \
-		"mips64-unknown-linux-gnu-gcc -mabi=32" \
-		"mips64-unknown-linux-gnu-gcc -mabi=n32" \
-		"s390-ibm-linux-gnu-gcc" \
-		"s390x-ibm-linux-gnu-gcc" \
-		"loongarch64-unknown-linux-gnu-gcc" \
+		"x86_64 x86_64-pc-linux-gnu-gcc" \
+		"i386 i686-pc-linux-gnu-gcc" \
+		"x32 x86_64-pc-linux-gnu-gcc -mx32" \
+		"arm armv7a-unknown-linux-gnueabi-gcc -marm -mhard-float" \
+		"arm armv7a-unknown-linux-gnueabi-gcc -mthumb -mhard-float" \
+		"ppc powerpc-unknown-linux-gnu-gcc" \
+		"ppc64 powerpc64-unknown-linux-gnu-gcc" \
+		"ppc64le powerpc64le-unknown-linux-gnu-gcc" \
+		"aarch64 aarch64-unknown-linux-gnu-gcc" \
+		"mips64 mips64-unknown-linux-gnu-gcc -mabi=64" \
+		"mips mips64-unknown-linux-gnu-gcc -mabi=32" \
+		"mipsn32 mips64-unknown-linux-gnu-gcc -mabi=n32" \
+		"s390 s390-ibm-linux-gnu-gcc" \
+		"s390x s390x-ibm-linux-gnu-gcc" \
+		"loongarch:loongarch64-unknown-linux-gnu-gcc" \
 	; do \
+		if [ "$(QEMU)" = "skip" ]; then \
+			qemu=""; \
+		else \
+			qemu_arch=`echo "$$cc" | sed 's: .*::'`; \
+			qemu="qemu-$$qemu_arch"; \
+		fi; \
+		\
+		cc=`echo "$$cc" | sed 's:[^ ]* ::'`; \
 		cxx=`echo "$$cc" | sed 's:-gcc:-g++:'`; \
-		$(MAKE) --no-print-directory CC="$$cc" CXX="$$cxx" cross_compile; \
+		$(MAKE) --no-print-directory CC="$$cc" CXX="$$cxx" QEMU="$$qemu" cross_single; \
 		\
 		sysroot=`$$cc --print-sysroot 2>/dev/null`; \
 		gccdir=`$$cc -print-file-name=libgcc.a 2>/dev/null`; \
@@ -162,5 +186,5 @@ cross:
 			*) cc="$$cc --sysroot $$sysroot -B$$gccdir -L$$gccdir";; \
 		esac; \
 		cxx=`echo "$$cc" | sed 's:^clang:clang++:'`; \
-		$(MAKE) --no-print-directory CC="$$cc" CXX="$$cxx" cross_compile; \
+		$(MAKE) --no-print-directory CC="$$cc" CXX="$$cxx" QEMU="$$qemu" cross_single; \
 	done
