@@ -1,0 +1,158 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "96db24c5_d802e4bd",
+        "filename": "tests/clone.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2018-09-21T18:59:42Z",
+      "side": 1,
+      "message": "Nit: cb -\u003e callback for readability.  (Since code is read more times than it\u0027s written.)",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 6
+      },
+      "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abe0e456_dd13c0cc",
+        "filename": "tests/clone.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2018-09-21T18:59:42Z",
+      "side": 1,
+      "message": "Can you add a comment like \"Test creating a thread\" just to make it obvious that this is creating a thread, not a process?",
+      "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0b92f34_f84fc47b",
+        "filename": "tests/clone.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2018-09-21T18:59:42Z",
+      "side": 1,
+      "message": "Can you use sizeof(stack) / 2, please?",
+      "range": {
+        "startLine": 48,
+        "startChar": 30,
+        "endLine": 48,
+        "endChar": 41
+      },
+      "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f798f26_f6400544",
+        "filename": "tests/clone.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2018-09-21T18:59:42Z",
+      "side": 1,
+      "message": "It would be cleaner to use CLONE_CHILD_SETTID and CLONE_CHILD_CLEARTID and futex_wait() on the location without spinning (and without a timeout).",
+      "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bb51de2_91d75a20",
+        "filename": "tests/fork.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2018-09-21T18:59:42Z",
+      "side": 1,
+      "message": "Missing text?  Should be \"a known exit code\"?",
+      "range": {
+        "startLine": 43,
+        "startChar": 30,
+        "endLine": 43,
+        "endChar": 37
+      },
+      "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb6c6754_894361d9",
+        "filename": "tests/open.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2018-09-21T18:59:42Z",
+      "side": 1,
+      "message": "Not necessarily reliable because \"struct stat\" has padding (despite memset() calls above), and I guess at_atime could change.  Maybe just compare st_ino and st_dev?",
+      "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afa98b47_5cc34a4c",
+        "filename": "tests/openat.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2018-09-21T18:59:42Z",
+      "side": 1,
+      "message": "Can you copy these two comments into open.c?",
+      "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef56de23_cac4bca1",
+        "filename": "tests/prctl.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2018-09-21T18:59:42Z",
+      "side": 1,
+      "message": "Style nit: \"{\" should go on previous line.  Same below.",
+      "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
