@@ -124,7 +124,8 @@ To run, just run `make` inside the tests directory.  It will compile & execute
 the tests locally.
 
 There is some limited cross-compile coverage available if you run `make cross`.
-It only compiles things (does not execute at all).
+It compiles things and tries to use [QEMU](https://www.qemu.org/) to execute.
+This means it can be somewhat flaky, so review the output carefully!
 
 ### Rolling into Chromium
 
