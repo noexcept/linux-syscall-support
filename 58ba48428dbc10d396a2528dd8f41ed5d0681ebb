@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e65ad775_8b51a60f",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2018-09-21T01:20:00Z",
+      "side": 1,
+      "message": "Maybe add something like \u0027or just \"git push origin HEAD:refs/for/master\", following the Gerrit instructions\u0027?  I\u0027m not sure what is most recommended for Chromium these days.",
+      "range": {
+        "startLine": 112,
+        "startChar": 6,
+        "endLine": 112,
+        "endChar": 21
+      },
+      "revId": "58ba48428dbc10d396a2528dd8f41ed5d0681ebb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0eb9be21_c1610f03",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2018-09-21T01:20:00Z",
+      "side": 1,
+      "message": "Can you make this https?",
+      "range": {
+        "startLine": 113,
+        "startChar": 25,
+        "endLine": 113,
+        "endChar": 29
+      },
+      "revId": "58ba48428dbc10d396a2528dd8f41ed5d0681ebb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
