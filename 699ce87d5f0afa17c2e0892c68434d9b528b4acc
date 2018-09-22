@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "331f9044_14646b0e",
+        "filename": "tests/clone.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-09-22T04:00:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96db24c5_d802e4bd",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 6
+      },
+      "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abe0e456_dd13c0cc",
         "filename": "tests/clone.c",
         "patchSetId": 4
@@ -39,6 +63,24 @@
       "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8126ff8_c8d20977",
+        "filename": "tests/clone.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-09-22T04:00:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abe0e456_dd13c0cc",
+      "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "ba9956d2_2cb43694",
+        "filename": "tests/clone.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-09-22T04:00:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0b92f34_f84fc47b",
+      "range": {
+        "startLine": 48,
+        "startChar": 30,
+        "endLine": 48,
+        "endChar": 41
+      },
+      "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f798f26_f6400544",
         "filename": "tests/clone.c",
         "patchSetId": 4
@@ -76,6 +142,24 @@
       "writtenOn": "2018-09-21T18:59:42Z",
       "side": 1,
       "message": "It would be cleaner to use CLONE_CHILD_SETTID and CLONE_CHILD_CLEARTID and futex_wait() on the location without spinning (and without a timeout).",
+      "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ad39a01_eca0722b",
+        "filename": "tests/clone.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-09-22T04:00:45Z",
+      "side": 1,
+      "message": "that does look saner, but i\u0027ve never used those interfaces before, so it\u0027ll take me a little bit to adapt",
+      "parentUuid": "2f798f26_f6400544",
       "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -105,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "74476a21_33e6ef1c",
+        "filename": "tests/fork.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-09-22T04:00:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bb51de2_91d75a20",
+      "range": {
+        "startLine": 43,
+        "startChar": 30,
+        "endLine": 43,
+        "endChar": 37
+      },
+      "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb6c6754_894361d9",
         "filename": "tests/open.c",
         "patchSetId": 4
@@ -116,6 +224,24 @@
       "writtenOn": "2018-09-21T18:59:42Z",
       "side": 1,
       "message": "Not necessarily reliable because \"struct stat\" has padding (despite memset() calls above), and I guess at_atime could change.  Maybe just compare st_ino and st_dev?",
+      "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2d49824_00507a9c",
+        "filename": "tests/open.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-09-22T04:00:45Z",
+      "side": 1,
+      "message": "i\u0027m aware of the padding, but i struggled to find a scenario where it would be a problem\n\nif the C library does the swizzling from kernel_stat to stat, it has to assign specific fields which wouldn\u0027t skip over the padding\n\nif the C library had defined its stat struct the same as the kernel so that it didn\u0027t have to do all the struct translation, the kernel should either have cleared that memory (otherwise it\u0027d have a kernel memory leak on its hands which is super bad) or the kernel also did field-wise assignments to the struct in which case the padding stayed clear\n\nyou are right that the atime field could have updated if the distro was dumb and was mounting /dev with strictatime semantics enabled.  i can change this to probe a bunch of sub-fields directly, but i don\u0027t like it :p.\n\nthe other reason i was keen on leaving this as-is is that i have seen the idiom in code bases where the struct stat is directly compared across calls and if the padding was set wrong, it caused test failures.  i don\u0027t recall off the top of my head what projects were doing this, i just remember that i had to actively fix uClibc to handle the padding correctly.",
+      "parentUuid": "eb6c6754_894361d9",
       "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
@@ -139,6 +265,41 @@
     },
     {
       "key": {
+        "uuid": "8d5eef70_501b23ad",
+        "filename": "tests/openat.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-09-22T04:00:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afa98b47_5cc34a4c",
+      "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8105c9e3_037c0be9",
+        "filename": "tests/openat.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-09-22T04:00:45Z",
+      "side": 1,
+      "message": "i guess you don\u0027t want me doing this here either",
+      "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef56de23_cac4bca1",
         "filename": "tests/prctl.c",
         "patchSetId": 4
@@ -153,6 +314,24 @@
       "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66e5e7e3_4ce3224c",
+        "filename": "tests/prctl.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2018-09-22T04:00:45Z",
+      "side": 1,
+      "message": "done\n\nsometimes my lkml slips out\n\nalso fixed readlink.c in this regard",
+      "parentUuid": "ef56de23_cac4bca1",
+      "revId": "699ce87d5f0afa17c2e0892c68434d9b528b4acc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     }
   ]
 }
