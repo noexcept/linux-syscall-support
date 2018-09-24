@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "04d29ca3_d1ed495a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1266792
+      },
+      "writtenOn": "2018-09-24T09:52:23Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "1659de5e_f5e20b15",
+      "revId": "1eaa9b899711795ce3e141bde006ec13ccb78316",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "78a58ecb_d647bfe5",
         "filename": "linux_syscall_support.h",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "1eaa9b899711795ce3e141bde006ec13ccb78316",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ec20e5f3_c67d87b2",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1266792
+      },
+      "writtenOn": "2018-09-24T09:52:23Z",
+      "side": 1,
+      "message": "resolved",
+      "parentUuid": "78a58ecb_d647bfe5",
+      "revId": "1eaa9b899711795ce3e141bde006ec13ccb78316",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -84,6 +120,24 @@
       "revId": "1eaa9b899711795ce3e141bde006ec13ccb78316",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab22f731_e058a602",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3168,
+      "author": {
+        "id": 1266792
+      },
+      "writtenOn": "2018-09-24T09:52:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3acf55d4_ab2ec9db",
+      "revId": "1eaa9b899711795ce3e141bde006ec13ccb78316",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
