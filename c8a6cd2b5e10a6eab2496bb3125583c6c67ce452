@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ef2d0b0_89854c59",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-28T19:31:44Z",
+      "side": 1,
+      "message": "should move this above the __PPC__ check above and then you don\u0027t need to do !__powerpc64__ above",
+      "revId": "c8a6cd2b5e10a6eab2496bb3125583c6c67ce452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "817cd45e_f0c23f4b",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-28T19:31:44Z",
+      "side": 1,
+      "message": "same here",
+      "revId": "c8a6cd2b5e10a6eab2496bb3125583c6c67ce452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a0d6f71_5f138046",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3216,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-28T19:31:44Z",
+      "side": 1,
+      "message": "imo we should leave it as an error\n\nyou don\u0027t have to fully implement ppc64 support in a single CL ...",
+      "revId": "c8a6cd2b5e10a6eab2496bb3125583c6c67ce452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef73b7a1_6e419486",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4232,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-01-28T19:31:44Z",
+      "side": 1,
+      "message": "there shouldn\u0027t be any arch checks here at all.  i know you didn\u0027t start the fire as it were ;).\n\neach of these should be behind a dedicated syscall check.\n\n #if defined(__NR_recvmsg)\n ...recvmsg def...\n #endif\n #if defined(__NR_sendmsg)\n ...sendmsg def...\n #endif\n\nwe can split that out into a sep CL and land that independent of PPC64 support.",
+      "revId": "c8a6cd2b5e10a6eab2496bb3125583c6c67ce452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
