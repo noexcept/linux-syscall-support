@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2cf5cc82_a87449ee",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1305517
+      },
+      "writtenOn": "2019-01-29T01:47:11Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "9ef2d0b0_89854c59",
+      "revId": "c8a6cd2b5e10a6eab2496bb3125583c6c67ce452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "817cd45e_f0c23f4b",
         "filename": "linux_syscall_support.h",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "c8a6cd2b5e10a6eab2496bb3125583c6c67ce452",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7c74690_70db6f2c",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1305517
+      },
+      "writtenOn": "2019-01-29T01:47:11Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "817cd45e_f0c23f4b",
+      "revId": "c8a6cd2b5e10a6eab2496bb3125583c6c67ce452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "504608b1_505a4abd",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3216,
+      "author": {
+        "id": 1305517
+      },
+      "writtenOn": "2019-01-29T01:47:11Z",
+      "side": 1,
+      "message": "Without this check, the ppc32 clone is used which results in subtle, hard-to-debug stack corruption. Would an #error work here? That way it won\u0027t misleadingly compile and fail at run time.",
+      "parentUuid": "0a0d6f71_5f138046",
+      "revId": "c8a6cd2b5e10a6eab2496bb3125583c6c67ce452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ef73b7a1_6e419486",
         "filename": "linux_syscall_support.h",
         "patchSetId": 3
@@ -64,6 +118,24 @@
       "writtenOn": "2019-01-28T19:31:44Z",
       "side": 1,
       "message": "there shouldn\u0027t be any arch checks here at all.  i know you didn\u0027t start the fire as it were ;).\n\neach of these should be behind a dedicated syscall check.\n\n #if defined(__NR_recvmsg)\n ...recvmsg def...\n #endif\n #if defined(__NR_sendmsg)\n ...sendmsg def...\n #endif\n\nwe can split that out into a sep CL and land that independent of PPC64 support.",
+      "revId": "c8a6cd2b5e10a6eab2496bb3125583c6c67ce452",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b424c8ad_5481e65b",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4232,
+      "author": {
+        "id": 1305517
+      },
+      "writtenOn": "2019-01-29T01:47:11Z",
+      "side": 1,
+      "message": "Sure, I can split this into a separate CL. It seems to be repeated for x86+mips at line #3634, so one of them will have to be removed.\n\nAlso, the existing logic for architectures on which the standalone socket calls may exist in addition to socketcall(2) will need to be changed to avoid multiple definitions of the same function. Perhaps something like this?\n```\n#if defined(__NR_recvmsg) /* general case for kernels with standalone call */\n...standalone syscall...\n#endif\n\n...\n\n#if defined(__PPC__) \u0026\u0026 !defined(__NR_recvmsg) /* Old PPC kernel with only socketcall */\n...existing PPC socketcall-based logic...\n#endif\n\n#if defined(__i386__) \u0026\u0026 defined(\u003cother socketcall arches\u003e) !defined(__NR_recvmsg)\n/* Only socketcall available */\n...existing generic socketcall-based logic...\n#endif\n```",
+      "parentUuid": "ef73b7a1_6e419486",
       "revId": "c8a6cd2b5e10a6eab2496bb3125583c6c67ce452",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
       "unresolved": true
