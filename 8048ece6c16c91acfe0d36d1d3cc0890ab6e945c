@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae736e00_d94acd25",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3890,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-11-13T20:10:34Z",
+      "side": 0,
+      "message": "you can delete this now (since you deleted the single user below)",
+      "revId": "8048ece6c16c91acfe0d36d1d3cc0890ab6e945c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3790a966_dc68ea06",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 3919,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-11-13T20:10:34Z",
+      "side": 0,
+      "message": "you can delete this now (since you deleted the single user below)",
+      "revId": "8048ece6c16c91acfe0d36d1d3cc0890ab6e945c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50478bfa_ee73584c",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4010,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-11-13T20:10:34Z",
+      "side": 0,
+      "message": "i don\u0027t have a sense when rt_sigprocmask was added to kernels, so what versions we\u0027re dropping here\n\nyou could merge this with the code above and put it under an __NR_sigprocmask check.\n\n    LSS_INLINE int LSS_NAME(sigprocmask)(int how,\n                                         const struct kernel_sigset_t *set,\n                                         struct kernel_sigset_t *oldset) {\n      int olderrno \u003d LSS_ERRNO;\n      int rc \u003d LSS_NAME(rt_sigprocmask)(how, set, oldset, (KERNEL_NSIG+7)/8);\n#ifdef __NR_sigprocmask\n      if (rc \u003c 0 \u0026\u0026 LSS_ERRNO \u003d\u003d ENOSYS) {\n        LSS_ERRNO \u003d olderrno;\n        if (oldset) {\n          LSS_NAME(sigemptyset)(oldset);\n        }\n        rc \u003d LSS_NAME(_sigprocmask)(how,\n                                    set ? \u0026set-\u003esig[0] : NULL,\n                                    oldset ? \u0026oldset-\u003esig[0] : NULL);\n      }\n#endif\n      return rc;\n    }",
+      "revId": "8048ece6c16c91acfe0d36d1d3cc0890ab6e945c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
