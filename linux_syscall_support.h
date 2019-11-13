@@ -3509,6 +3509,8 @@ struct kernel_statfs {
                        struct kernel_sigset_t*,        o, size_t, c)
   LSS_INLINE _syscall2(int, rt_sigsuspend,
                        const struct kernel_sigset_t*, s,  size_t, c)
+  LSS_INLINE _syscall4(int, rt_sigtimedwait, const struct kernel_sigset_t*, s,
+                       siginfo_t*, i, const struct timespec*, t, size_t, c)
   LSS_INLINE _syscall3(int,     sched_getaffinity,pid_t,      p,
                        unsigned int,   l, unsigned long *, m)
   LSS_INLINE _syscall3(int,     sched_setaffinity,pid_t,      p,
@@ -3704,14 +3706,21 @@ struct kernel_statfs {
       return LSS_NAME(rt_sigpending)(set, (KERNEL_NSIG+7)/8);
     }
 
+    LSS_INLINE int LSS_NAME(sigsuspend)(const struct kernel_sigset_t *set) {
+      return LSS_NAME(rt_sigsuspend)(set, (KERNEL_NSIG+7)/8);
+    }
+  #endif
+  #if defined(__x86_64__) || defined(__s390x__) || defined(__aarch64__)
     LSS_INLINE int LSS_NAME(sigprocmask)(int how,
                                          const struct kernel_sigset_t *set,
                                          struct kernel_sigset_t *oldset) {
       return LSS_NAME(rt_sigprocmask)(how, set, oldset, (KERNEL_NSIG+7)/8);
     }
 
-    LSS_INLINE int LSS_NAME(sigsuspend)(const struct kernel_sigset_t *set) {
-      return LSS_NAME(rt_sigsuspend)(set, (KERNEL_NSIG+7)/8);
+    LSS_INLINE int LSS_NAME(sigtimedwait)(const struct kernel_sigset_t *set,
+                                          siginfo_t *info,
+                                          const struct timespec *timeout) {
+      return LSS_NAME(rt_sigtimedwait)(set, info, timeout, (KERNEL_NSIG+7)/8);
     }
   #endif
   #if defined(__NR_wait4)
@@ -4031,6 +4040,12 @@ struct kernel_statfs {
                                    set->sig[0]);
       }
       return rc;
+    }
+
+    LSS_INLINE int LSS_NAME(sigtimedwait)(const struct kernel_sigset_t *set,
+                                          siginfo_t *info,
+                                          const struct timespec *timeout) {
+      return LSS_NAME(rt_sigtimedwait)(set, info, timeout, (KERNEL_NSIG+7)/8);
     }
   #endif
   #if defined(__i386__) ||                                                    \

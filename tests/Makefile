@@ -41,6 +41,7 @@ LDFLAGS += -static
 
 TESTS = \
 	unlink \
+	sigtimedwait \
 
 all: check
 
