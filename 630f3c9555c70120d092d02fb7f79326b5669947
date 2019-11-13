@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9af28b50_22a7dba7",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3713,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-11-13T19:38:19Z",
+      "side": 1,
+      "message": "i\u0027ve been trying to get away from this.  can you wrap this new func in an __NR_rt_sigtimedwait check instead like we do below w/wait4 \u0026 openat ?\n\nthen you won\u0027t need to duplicate the definition of rt_sigtimedwait like you are here.",
+      "revId": "630f3c9555c70120d092d02fb7f79326b5669947",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24a78eca_f530fedd",
+        "filename": "tests/Makefile",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-11-13T19:38:19Z",
+      "side": 1,
+      "message": "keep it sorted please",
+      "revId": "630f3c9555c70120d092d02fb7f79326b5669947",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f1ba5a6_bced841d",
+        "filename": "tests/sigtimedwait.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-11-13T19:38:19Z",
+      "side": 1,
+      "message": "period at the end of comments",
+      "revId": "630f3c9555c70120d092d02fb7f79326b5669947",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
