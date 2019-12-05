@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae96ff12_42495023",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3633,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-12-05T19:26:35Z",
+      "side": 1,
+      "message": "look at line 1857 above to see the style we use for multiline ifdef checks",
+      "revId": "aeead3c5c4cda59da98e2889498e538a48e590fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9293cf94_329b3ae2",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3634,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2019-12-05T19:26:35Z",
+      "side": 1,
+      "message": "we most likely want this for ppc32 \u0026 mips (o32) too, so add:\n\n || defined(__PPC__) || (defined(__mips__) \u0026\u0026 _MIPS_SIM \u003d\u003d _MIPS_SIM_ABI32)",
+      "revId": "aeead3c5c4cda59da98e2889498e538a48e590fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
