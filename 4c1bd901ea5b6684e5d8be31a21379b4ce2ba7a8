@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9ab2e604_ca8bc9a7",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 3217,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2020-01-27T13:48:55Z",
+      "side": 1,
+      "message": "https://crrev.com/c/987838 has a clone implementation",
+      "revId": "4c1bd901ea5b6684e5d8be31a21379b4ce2ba7a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": true
+    }
+  ]
+}
