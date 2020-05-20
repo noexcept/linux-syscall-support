@@ -41,6 +41,7 @@ LDFLAGS += -static
 
 TESTS = \
 	fallocate \
+	getrandom \
 	sigtimedwait \
 	unlink \
 
