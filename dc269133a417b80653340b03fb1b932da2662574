@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f79eb8a1_82545050",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001040
+      },
+      "writtenOn": "2020-08-13T00:15:48Z",
+      "side": 1,
+      "message": "I\u0027m trying a different tactic... I really don\u0027t know what I\u0027m doing in this maze of twisty macros. 😊\n\nAlso I don\u0027t see a CQ dry run button in Gerrit for LSS? ",
+      "revId": "dc269133a417b80653340b03fb1b932da2662574",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
+      "unresolved": false
+    }
+  ]
+}
