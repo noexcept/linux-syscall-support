@@ -34,6 +34,24 @@
       "parentUuid": "dc0ee7bd_b9d38b6b",
       "revId": "29f7c7e018f4ce706a709f0b0afbf8bacf869480",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89497b86_b379cbbd",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1444,
+      "author": {
+        "id": 1317343
+      },
+      "writtenOn": "2020-11-24T08:55:38Z",
+      "side": 1,
+      "message": "https://chromium-review.googlesource.com/c/linux-syscall-support/+/2556468",
+      "parentUuid": "49fc05c6_51414c14",
+      "revId": "29f7c7e018f4ce706a709f0b0afbf8bacf869480",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
