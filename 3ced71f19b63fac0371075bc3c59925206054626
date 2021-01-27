@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb8be6b4_48993349",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-01-27T17:01:29Z",
+      "side": 1,
+      "message": "please change \"SSE4\" to your name",
+      "revId": "3ced71f19b63fac0371075bc3c59925206054626",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00cc60d9_1c66142c",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-01-27T17:01:29Z",
+      "side": 1,
+      "message": "line wrap -- don\u0027t exceed 80 cols",
+      "revId": "3ced71f19b63fac0371075bc3c59925206054626",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
