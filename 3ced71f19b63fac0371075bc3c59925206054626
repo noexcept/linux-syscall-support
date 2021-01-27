@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac243157_caa12187",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1307192
+      },
+      "writtenOn": "2021-01-27T17:55:34Z",
+      "side": 1,
+      "message": "I have updated committer, author and sign-off to use my real name (Konstantin Ivlev).",
+      "parentUuid": "cb8be6b4_48993349",
+      "revId": "3ced71f19b63fac0371075bc3c59925206054626",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00cc60d9_1c66142c",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-01-27T17:01:29Z",
       "side": 1,
       "message": "line wrap -- don\u0027t exceed 80 cols",
+      "revId": "3ced71f19b63fac0371075bc3c59925206054626",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8ee60b8_1b3e58a7",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1307192
+      },
+      "writtenOn": "2021-01-27T17:55:34Z",
+      "side": 1,
+      "message": "I have fixed all the lines longer than 80 columns.",
+      "parentUuid": "00cc60d9_1c66142c",
       "revId": "3ced71f19b63fac0371075bc3c59925206054626",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
