@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36431107_ee2c963d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115676
+      },
+      "writtenOn": "2021-02-05T19:07:46Z",
+      "side": 1,
+      "message": "You should actually just remove me from all of the OWNERS. I am not quite sure how I need to do that for all of the bugs in this subsystem. But it really doesn\u0027t make much sense for me to be notified of bugs (or rather spam comments) for code that I haven\u0027t touched in years, but that I am also in no position to actively find a replacement maintainer for. Are you volunteering? Pretty please.",
+      "revId": "bf2c35189c7c6735c8e1afefc70fe523ad485dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
