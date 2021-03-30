@@ -16,6 +16,108 @@
       "message": "Mike can you PTAL? Thanks!",
       "revId": "e4f611a5cd55ec444b744f60127f4e9a3a02abb3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9446553_525e5561",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3869,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-03-30T21:19:16Z",
+      "side": 1,
+      "message": "this should be a sep ifdef block.  we don\u0027t want to conflate syscall coverage like this.\n\n  #if defined(__NR_stat)\n...stat...\n  #endif\n  #if defined(__NR_lstat)\n...lstat...\n  #endif",
+      "revId": "e4f611a5cd55ec444b744f60127f4e9a3a02abb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7809b7f6_4549a8e2",
+        "filename": "tests/Makefile",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-03-30T21:19:16Z",
+      "side": 1,
+      "message": "please keep sorted",
+      "revId": "e4f611a5cd55ec444b744f60127f4e9a3a02abb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b49e30ce_547cc5f1",
+        "filename": "tests/stat.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-03-30T21:19:16Z",
+      "side": 1,
+      "message": "space before the (",
+      "revId": "e4f611a5cd55ec444b744f60127f4e9a3a02abb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9127266_9f181ddf",
+        "filename": "tests/stat.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-03-30T21:19:16Z",
+      "side": 1,
+      "message": "this needs more explanation.  i\u0027m pretty sure you\u0027re doing this because of the (in)famous 64-bit inodes showing up in newer filesystems (especially XFS) that\u0027s breaking any use of stat() in 32-bit apps not built with LFS.  but i don\u0027t think that issue is well known for most devs.",
+      "revId": "e4f611a5cd55ec444b744f60127f4e9a3a02abb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21bbf72d_afe77892",
+        "filename": "tests/stat.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-03-30T21:19:16Z",
+      "side": 1,
+      "message": "if we hit this code path, we haven\u0027t really verified the syscall works.  how about we have it exit 77 and we mark that as SKIP so the dev knows what\u0027s going on and doesn\u0027t get a false sense of success/coverage ?\n\nshouldn\u0027t be too hard to update the Makefile to support this ... if you want, i can bang it out quickly and send you a CL",
+      "revId": "e4f611a5cd55ec444b744f60127f4e9a3a02abb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b327a6c4_d442fbc7",
+        "filename": "tests/stat.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-03-30T21:19:16Z",
+      "side": 1,
+      "message": "my rough goal for unittests was to keep a 1-to-1 relation between module \u0026 syscall.  so stat.c is for sys_stat, but we\u0027d want lstat.c for sys_lstat.",
+      "revId": "e4f611a5cd55ec444b744f60127f4e9a3a02abb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
