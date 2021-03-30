@@ -45,6 +45,7 @@ TESTS = \
 	getrandom \
 	sigtimedwait \
 	unlink \
+	stat \
 
 all: check
 
