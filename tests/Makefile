@@ -41,9 +41,11 @@ LDFLAGS += -static
 
 TESTS = \
 	fallocate \
-	sigaction \
 	getrandom \
+	lstat \
+	sigaction \
 	sigtimedwait \
+	stat \
 	unlink \
 
 all: check
@@ -56,11 +58,18 @@ all: check
 
 %_run: %_test
 	@t=$(@:_run=_test); \
-	echo "./$$t"; \
-	if ! env -i ./$$t; then \
+	printf %s "./$$t "; \
+	env -i ./$$t; \
+	exit_status=$$?; \
+	if [ $$exit_status = 77 ]; then \
+		echo "SKIP"; \
+	elif [ $$exit_status != 0 ]; then \
+		echo "FAIL"; \
 		env -i strace -f -v ./$$t; \
 		echo "TRY: gdb -q -ex r -ex bt ./$$t"; \
 		exit 1; \
+	else \
+		echo "PASS"; \
 	fi
 
 ALL_TEST_TARGETS = $(TESTS:=_test)
