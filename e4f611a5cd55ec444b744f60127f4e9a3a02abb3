@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "497c9ae0_bedab43c",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3869,
+      "author": {
+        "id": 1297347
+      },
+      "writtenOn": "2021-03-31T07:05:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9446553_525e5561",
+      "revId": "e4f611a5cd55ec444b744f60127f4e9a3a02abb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7809b7f6_4549a8e2",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-03-30T21:19:16Z",
       "side": 1,
       "message": "please keep sorted",
+      "revId": "e4f611a5cd55ec444b744f60127f4e9a3a02abb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04f35140_f4994696",
+        "filename": "tests/Makefile",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1297347
+      },
+      "writtenOn": "2021-03-31T07:05:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7809b7f6_4549a8e2",
       "revId": "e4f611a5cd55ec444b744f60127f4e9a3a02abb3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "45aa1ac6_c64d2c70",
+        "filename": "tests/stat.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1297347
+      },
+      "writtenOn": "2021-03-31T07:05:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b49e30ce_547cc5f1",
+      "revId": "e4f611a5cd55ec444b744f60127f4e9a3a02abb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9127266_9f181ddf",
@@ -82,6 +136,24 @@
       "writtenOn": "2021-03-30T21:19:16Z",
       "side": 1,
       "message": "this needs more explanation.  i\u0027m pretty sure you\u0027re doing this because of the (in)famous 64-bit inodes showing up in newer filesystems (especially XFS) that\u0027s breaking any use of stat() in 32-bit apps not built with LFS.  but i don\u0027t think that issue is well known for most devs.",
+      "revId": "e4f611a5cd55ec444b744f60127f4e9a3a02abb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5878ad4_06caf15d",
+        "filename": "tests/stat.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1297347
+      },
+      "writtenOn": "2021-03-31T07:05:52Z",
+      "side": 1,
+      "message": "Yeah. I figured this is using struct kernel_stat which definitely has 32-bit inodes on some systems, so if I\u0027m testing stat I need to check for EOVERFLOW. Maybe overkill for a test.",
+      "parentUuid": "c9127266_9f181ddf",
       "revId": "e4f611a5cd55ec444b744f60127f4e9a3a02abb3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -103,6 +175,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "755963cf_f14c0278",
+        "filename": "tests/stat.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1297347
+      },
+      "writtenOn": "2021-03-31T07:05:52Z",
+      "side": 1,
+      "message": "I definitely not a Makefile/shell script wizard but I made an attempt!",
+      "parentUuid": "21bbf72d_afe77892",
+      "revId": "e4f611a5cd55ec444b744f60127f4e9a3a02abb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b327a6c4_d442fbc7",
@@ -116,6 +206,24 @@
       "writtenOn": "2021-03-30T21:19:16Z",
       "side": 1,
       "message": "my rough goal for unittests was to keep a 1-to-1 relation between module \u0026 syscall.  so stat.c is for sys_stat, but we\u0027d want lstat.c for sys_lstat.",
+      "revId": "e4f611a5cd55ec444b744f60127f4e9a3a02abb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05daf24e_d87bd36a",
+        "filename": "tests/stat.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1297347
+      },
+      "writtenOn": "2021-03-31T07:05:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b327a6c4_d442fbc7",
       "revId": "e4f611a5cd55ec444b744f60127f4e9a3a02abb3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
