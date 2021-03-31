@@ -123,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "101bf624_fab06ae3",
+        "filename": "tests/Makefile",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1297347
+      },
+      "writtenOn": "2021-03-31T21:06:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "903207fc_9c55e0d2",
+      "revId": "2ace19a0b14fa1899b52f3319f8a957e4d463757",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "167ae7de_ff4cc5fe",
