@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfa3063e_d66ee091",
+        "filename": "tests/Makefile",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-04-01T00:45:32Z",
+      "side": 1,
+      "message": "i tried this locally and realized this current approach won\u0027t work when running in parallel\n\nchange this line back to a plain echo:\n\n echo \"./$$t\"\n\nthen change the skip section to:\n\n echo \"SKIP: $$t\"\n\nthen change the fail section to:\n\n echo \"FAIL: $$t\"\n\nthen delete the \"echo PASS\" below\n\nif we have multiple failures, the output will still be interleaved, but that\u0027s not a new issue, and i won\u0027t make you fix that too ;)",
+      "revId": "0a8f27dcf67e3cb33dd0d958cff6cba1f0e3a043",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
