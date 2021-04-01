@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aae53787_789c6889",
+        "filename": "tests/Makefile",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-04-01T13:57:29Z",
+      "side": 1,
+      "message": "no space at the end of the string ;)",
+      "revId": "11f6af538c688cf0c4e8730c53b901970eff010b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
