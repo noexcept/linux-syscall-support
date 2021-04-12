@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c741fa64_9681d08a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-04-12T15:24:01Z",
+      "side": 1,
+      "message": "i tweaked the commit message.  code looks fine though, thanks.",
+      "revId": "ed33e2d8bc670e5e923f7029170f3ec8ab05266e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
