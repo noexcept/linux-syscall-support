@@ -380,7 +380,7 @@ struct kernel_stat64 {
   unsigned           __pad2;
   unsigned long long st_blocks;
 };
-#elif defined __PPC__
+#elif defined __PPC__ && !defined(__powerpc64__)
 struct kernel_stat64 {
   unsigned long long st_dev;
   unsigned long long st_ino;
@@ -401,6 +401,28 @@ struct kernel_stat64 {
   unsigned long      st_ctime_nsec_;
   unsigned long      __unused4;
   unsigned long      __unused5;
+};
+#elif defined(__powerpc64__)
+struct kernel_stat64 {
+  unsigned long int  st_dev;
+  unsigned long int  st_ino;
+  unsigned int       st_mode;
+  unsigned long int  st_nlink;
+  unsigned int       st_uid;
+  unsigned int       st_gid;
+  unsigned long int  st_rdev;
+  unsigned short int __pad2;
+  long int           st_size;
+  long int           st_blksize;
+  long int           st_blocks;
+  long int           st_atime_;
+  unsigned long int  st_atime_nsec_;
+  long int           st_mtime_;
+  unsigned long int  st_mtime_nsec_;
+  long int           st_ctime_;
+  unsigned long int  st_ctime_nsec_;
+  unsigned long int  __unused4;
+  unsigned long int  __unused5;
 };
 #elif defined(__e2k__)
 struct kernel_stat64 {
@@ -498,7 +520,7 @@ struct kernel_stat {
   uint64_t           st_ctime_nsec_;
   int64_t            __unused4[3];
 };
-#elif defined(__PPC__)
+#elif defined(__PPC__) && !defined(__powerpc64__)
 struct kernel_stat {
   unsigned           st_dev;
   unsigned long      st_ino;      // ino_t
@@ -518,6 +540,29 @@ struct kernel_stat {
   unsigned long      st_ctime_nsec_;
   unsigned long      __unused4;
   unsigned long      __unused5;
+};
+#elif defined(__powerpc64__)
+struct kernel_stat {
+  unsigned long int  st_dev;
+  unsigned long int  st_ino;
+  unsigned long int  st_nlink;
+  unsigned int       st_mode;
+  unsigned int       st_uid;
+  unsigned int       st_gid;
+  int                __pad2;
+  unsigned long int  st_rdev;
+  long int           st_size;
+  long int           st_blksize;
+  long int           st_blocks;
+  long int           st_atime_;
+  unsigned long int  st_atime_nsec_;
+  long int           st_mtime_;
+  unsigned long int  st_mtime_nsec_;
+  long int           st_ctime_;
+  unsigned long int  st_ctime_nsec_;
+  unsigned long int  __reserved4;
+  unsigned long int  __reserved5;
+  unsigned long int  __reserved6;
 };
 #elif (defined(__mips__) && _MIPS_SIM != _MIPS_SIM_ABI64)
 struct kernel_stat {
@@ -1677,6 +1722,26 @@ struct kernel_statfs {
 #endif
 #ifndef __NR_getcpu
 #define __NR_getcpu             302
+#endif
+/* Linux commit 86250b9d12caa1a3dee12a7cf638b7dd70eaadb6 (2010) adds
+ * direct socket system calls to PPC */
+#ifndef __NR_socket
+#define __NR_socket             326
+#endif
+#ifndef __NR_socketpair
+#define __NR_socketpair         333
+#endif
+#ifndef __NR_sendto
+#define __NR_sendto             335
+#endif
+#ifndef __NR_shutdown
+#define __NR_shutdown           338
+#endif
+#ifndef __NR_sendmsg
+#define __NR_sendmsg            341
+#endif
+#ifndef __NR_recvmsg
+#define __NR_recvmsg            342
 #endif
 /* End of powerpc defininitions                                              */
 #elif defined(__s390__)
@@ -4250,7 +4315,7 @@ struct kernel_statfs {
       LSS_REG(2, buf);
       LSS_BODY(void*, mmap2, "0"(__r2));
     }
-#else
+#elif !defined(__powerpc64__) /* ppc64 doesn't have mmap2 */
     #define __NR__mmap2 __NR_mmap2
     LSS_INLINE _syscall6(void*, _mmap2,            void*, s,
                          size_t,                   l, int,               p,
@@ -4361,7 +4426,7 @@ struct kernel_statfs {
   #if defined(__i386__) ||                                                    \
       defined(__ARM_ARCH_3__) || defined(__ARM_EABI__) ||                     \
      (defined(__mips__) && _MIPS_SIM == _MIPS_SIM_ABI32) ||                   \
-      defined(__PPC__) ||                                                     \
+     (defined(__PPC__) && !defined(__powerpc64__)) ||                         \
      (defined(__s390__) && !defined(__s390x__))
     /* On these architectures, implement mmap() with mmap2(). */
     LSS_INLINE void* LSS_NAME(mmap)(void *s, size_t l, int p, int f, int d,
@@ -4395,7 +4460,7 @@ struct kernel_statfs {
     LSS_INLINE _syscall6(void*, mmap, void*, addr, size_t, length, int, prot,
                          int, flags, int, fd, int64_t, offset)
   #endif
-  #if defined(__PPC__)
+  #if defined(__PPC__) && !defined(__powerpc64__)
     #undef LSS_SC_LOADARGS_0
     #define LSS_SC_LOADARGS_0(dummy...)
     #undef LSS_SC_LOADARGS_1
@@ -4484,7 +4549,7 @@ struct kernel_statfs {
       LSS_SC_BODY(4, int, 8, d, type, protocol, sv);
     }
   #endif
-  #if defined(__ARM_EABI__) || defined (__aarch64__)
+  #if defined(__ARM_EABI__) || defined (__aarch64__) || defined(__powerpc64__)
     LSS_INLINE _syscall3(ssize_t, recvmsg, int, s, struct kernel_msghdr*, msg,
                          int, flags)
     LSS_INLINE _syscall3(ssize_t, sendmsg, int, s, const struct kernel_msghdr*,
