@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f849dd06_8d087d10",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-09-24T09:17:42Z",
+      "side": 1,
+      "message": "i don\u0027t understand what this means",
+      "revId": "393d93e0fc1e1d6007e23642713e032feda79906",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "101cc6dd_516a659d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-09-24T09:17:42Z",
+      "side": 1,
+      "message": "largely looks good",
+      "revId": "393d93e0fc1e1d6007e23642713e032feda79906",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65d21a9a_cc24d626",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 4318,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2021-09-24T09:17:42Z",
+      "side": 1,
+      "message": "check for __NR_mmap2 existence instead then",
+      "revId": "393d93e0fc1e1d6007e23642713e032feda79906",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
