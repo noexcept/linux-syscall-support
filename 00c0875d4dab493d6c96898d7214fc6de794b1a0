@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c214cc6_2ecb29d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1383098
+      },
+      "writtenOn": "2022-01-25T16:26:42Z",
+      "side": 1,
+      "message": "I rechecked the change and it looks good to me. +2 from my side.",
+      "revId": "00c0875d4dab493d6c96898d7214fc6de794b1a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
