@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80a59172_c2d9fa56",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-04-21T14:05:52Z",
+      "side": 1,
+      "message": "this uses `__riscv` everywhere which is the same define as riscv32, but i\u0027m pretty sure this code doesn\u0027t work for riscv32",
+      "revId": "fcc0b234fa7a936ce76b041b5abc045d7c474216",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e65a2561_5533cf5f",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-04-21T14:05:52Z",
+      "side": 1,
+      "message": "please don\u0027t use tabs",
+      "revId": "fcc0b234fa7a936ce76b041b5abc045d7c474216",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
