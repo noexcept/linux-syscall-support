@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e814c5b_437383f1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1542007
+      },
+      "writtenOn": "2022-04-21T15:24:57Z",
+      "side": 1,
+      "message": "Added __riscv_xlen \u003d\u003d 64 where it matters.",
+      "parentUuid": "80a59172_c2d9fa56",
+      "revId": "fcc0b234fa7a936ce76b041b5abc045d7c474216",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e65a2561_5533cf5f",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-04-21T14:05:52Z",
       "side": 1,
       "message": "please don\u0027t use tabs",
+      "revId": "fcc0b234fa7a936ce76b041b5abc045d7c474216",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fc70601_715abef4",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1542007
+      },
+      "writtenOn": "2022-04-21T15:24:57Z",
+      "side": 1,
+      "message": "M-x untabify",
+      "parentUuid": "e65a2561_5533cf5f",
       "revId": "fcc0b234fa7a936ce76b041b5abc045d7c474216",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
