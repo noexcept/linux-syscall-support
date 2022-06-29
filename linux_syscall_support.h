@@ -2290,7 +2290,7 @@ struct kernel_statfs {
     #define _LSS_RETURN(type, res, cast)                                      \
       do {                                                                    \
         if ((uint64_t)(res) >= (uint64_t)(-4095)) {                           \
-          LSS_ERRNO = -(res);                                                 \
+          LSS_ERRNO = (int)(-(res));                                          \
           res = -1;                                                           \
         }                                                                     \
         return (type)(cast)(res);                                             \
@@ -4313,36 +4313,36 @@ struct kernel_statfs {
 
   LSS_INLINE int LSS_NAME(sigaddset)(struct kernel_sigset_t *set,
                                      int signum) {
-    if (signum < 1 || signum > (int)(8*sizeof(set->sig))) {
+    if (signum < 1 || (size_t)signum > (8*sizeof(set->sig))) {
       LSS_ERRNO = EINVAL;
       return -1;
     } else {
-      set->sig[(signum - 1)/(8*sizeof(set->sig[0]))]
-          |= 1UL << ((signum - 1) % (8*sizeof(set->sig[0])));
+      set->sig[(size_t)(signum - 1)/(8*sizeof(set->sig[0]))]
+          |= 1UL << ((size_t)(signum - 1) % (8*sizeof(set->sig[0])));
       return 0;
     }
   }
 
   LSS_INLINE int LSS_NAME(sigdelset)(struct kernel_sigset_t *set,
                                         int signum) {
-    if (signum < 1 || signum > (int)(8*sizeof(set->sig))) {
+    if (signum < 1 || (size_t)signum > (8*sizeof(set->sig))) {
       LSS_ERRNO = EINVAL;
       return -1;
     } else {
-      set->sig[(signum - 1)/(8*sizeof(set->sig[0]))]
-          &= ~(1UL << ((signum - 1) % (8*sizeof(set->sig[0]))));
+      set->sig[(size_t)(signum - 1)/(8*sizeof(set->sig[0]))]
+          &= ~(1UL << ((size_t)(signum - 1) % (8*sizeof(set->sig[0]))));
       return 0;
     }
   }
 
   LSS_INLINE int LSS_NAME(sigismember)(struct kernel_sigset_t *set,
                                           int signum) {
-    if (signum < 1 || signum > (int)(8*sizeof(set->sig))) {
+    if (signum < 1 || (size_t)signum > (8*sizeof(set->sig))) {
       LSS_ERRNO = EINVAL;
       return -1;
     } else {
-      return !!(set->sig[(signum - 1)/(8*sizeof(set->sig[0]))] &
-                (1UL << ((signum - 1) % (8*sizeof(set->sig[0])))));
+      return !!(set->sig[(size_t)(signum - 1)/(8*sizeof(set->sig[0]))] &
+                (1UL << ((size_t)(signum - 1) % (8*sizeof(set->sig[0])))));
     }
   }
   #if defined(__i386__) ||                                                    \
@@ -4742,12 +4742,12 @@ struct kernel_statfs {
     va_start(ap, flags);
     new_address = va_arg(ap, void *);
     rc = LSS_NAME(_mremap)(old_address, old_size, new_size,
-                           flags, new_address);
+                           (unsigned long)flags, new_address);
     va_end(ap);
     return rc;
   }
 
-  LSS_INLINE int LSS_NAME(ptrace_detach)(pid_t pid) {
+  LSS_INLINE long LSS_NAME(ptrace_detach)(pid_t pid) {
     /* PTRACE_DETACH can sometimes forget to wake up the tracee and it
      * then sends job control signals to the real parent, rather than to
      * the tracer. We reduce the risk of this happening by starting a
@@ -4758,7 +4758,8 @@ struct kernel_statfs {
      * detached.  Large multi threaded apps can take a long time in the kernel
      * processing SIGCONT.
      */
-    int rc, err;
+    long rc;
+    int err;
     LSS_NAME(sched_yield)();
     rc = LSS_NAME(ptrace)(PTRACE_DETACH, pid, (void *)0, (void *)0);
     err = LSS_ERRNO;
