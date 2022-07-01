@@ -41,8 +41,10 @@ LDFLAGS += -static
 
 TESTS = \
 	fallocate \
+	getitimer \
 	getrandom \
 	lstat \
+	setitimer \
 	sigaction \
 	sigtimedwait \
 	stat \
