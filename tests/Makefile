@@ -43,6 +43,7 @@ TESTS = \
 	fallocate \
 	getrandom \
 	lstat \
+	setitimer \
 	sigaction \
 	sigtimedwait \
 	stat \

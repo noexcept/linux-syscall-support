@@ -267,6 +267,12 @@ struct kernel_timeval {
   long               tv_usec;
 };
 
+/* include/linux/time.h                                                      */
+struct kernel_itimerval {
+  struct kernel_timeval it_interval;
+  struct kernel_timeval it_value;
+};
+
 /* include/linux/resource.h                                                  */
 struct kernel_rusage {
   struct kernel_timeval ru_utime;
@@ -3965,6 +3971,9 @@ struct kernel_statfs {
   LSS_INLINE _syscall1(int,     setfsuid,        uid_t,       u)
   LSS_INLINE _syscall1(int,     setuid,          uid_t,       u)
   LSS_INLINE _syscall1(int,     setgid,          gid_t,       g)
+  LSS_INLINE _syscall3(int,     setitimer,       int,         w,
+		       const struct kernel_itimerval*,        n,
+		       struct kernel_itimerval*, o)
   LSS_INLINE _syscall2(int,     setpgid,         pid_t,       p,
                        pid_t,          g)
   LSS_INLINE _syscall3(int,     setpriority,     int,         a,
