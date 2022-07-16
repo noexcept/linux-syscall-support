@@ -29,16 +29,18 @@ The following architectures/ABIs have been tested (at some point) and should
 generally work.  If you don't see your combo listed here, please double check
 the header itself as this list might be out of date.
 
+<!-- Please keep the list alphabetically sorted when updating -->
+
+* AARCH64 64-bit (i.e. arm64, armv8, etc...)
+* [ARM 32-bit](https://en.wikipedia.org/wiki/ARM_architecture) EABI (i.e. armv6, armv7, etc...)
+* [ARM 32-bit](https://en.wikipedia.org/wiki/ARM_architecture) OABI
+* MIPS 32-bit n32 ABI
+* MIPS 32-bit o32 ABI
+* MIPS 64-bit n64 ABI
+* PowerPC 32-bit (i.e. ppc, ppc32, etc...)
+* [x32 32-bit](https://sites.google.com/site/x32abi/)
 * x86 32-bit (i.e. i386, i486, i586, i686, Intel, AMD, etc...)
 * [x86_64 64-bit](https://en.wikipedia.org/wiki/X86-64) (i.e. x86-64, amd64, etc...)
-* [x32 32-bit](https://sites.google.com/site/x32abi/)
-* [ARM 32-bit](https://en.wikipedia.org/wiki/ARM_architecture) OABI
-* [ARM 32-bit](https://en.wikipedia.org/wiki/ARM_architecture) EABI (i.e. armv6, armv7, etc...)
-* AARCH64 64-bit (i.e. arm64, armv8, etc...)
-* PowerPC 32-bit (i.e. ppc, ppc32, etc...)
-* MIPS 32-bit o32 ABI
-* MIPS 32-bit n32 ABI
-* MIPS 64-bit n64 ABI
 
 ## API
 
