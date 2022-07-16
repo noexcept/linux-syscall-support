@@ -1053,6 +1053,9 @@ struct kernel_statfs {
 #ifndef __NR_fallocate
 #define __NR_fallocate          324
 #endif
+#ifndef __NR_prlimit64
+#define __NR_prlimit64          340
+#endif
 #ifndef __NR_getrandom
 #define __NR_getrandom          355
 #endif
@@ -1166,6 +1169,9 @@ struct kernel_statfs {
 #ifndef __NR_getcpu
 #define __NR_getcpu             (__NR_SYSCALL_BASE + 345)
 #endif
+#ifndef __NR_prlimit64
+#define __NR_prlimit64          (__NR_SYSCALL_BASE + 369)
+#endif
 #ifndef __NR_getrandom
 #define __NR_getrandom          (__NR_SYSCALL_BASE + 384)
 #endif
@@ -1270,6 +1276,9 @@ struct kernel_statfs {
 #ifndef __NR_move_pages
 #define __NR_move_pages         239
 #endif
+#ifndef __NR_prlimit64
+#define __NR_prlimit64          261
+#endif
 #ifndef __NR_getrandom
 #define __NR_getrandom          278
 #endif
@@ -1366,6 +1375,9 @@ struct kernel_statfs {
 #endif
 #ifndef __NR_fallocate
 #define __NR_fallocate          285
+#endif
+#ifndef __NR_prlimit64
+#define __NR_prlimit64          302
 #endif
 #ifndef __NR_getrandom
 #define __NR_getrandom          318
@@ -1474,6 +1486,9 @@ struct kernel_statfs {
 #ifndef __NR_ioprio_get
 #define __NR_ioprio_get         (__NR_Linux + 315)
 #endif
+#ifndef __NR_prlimit64
+#define __NR_prlimit64          (__NR_Linux + 338)
+#endif
 #ifndef __NR_getrandom
 #define __NR_getrandom          (__NR_Linux + 353)
 #endif
@@ -1558,6 +1573,9 @@ struct kernel_statfs {
 #ifndef __NR_ioprio_get
 #define __NR_ioprio_get         (__NR_Linux + 274)
 #endif
+#ifndef __NR_prlimit64
+#define __NR_prlimit64          (__NR_Linux + 297)
+#endif
 #ifndef __NR_getrandom
 #define __NR_getrandom          (__NR_Linux + 313)
 #endif
@@ -1641,6 +1659,9 @@ struct kernel_statfs {
 #endif
 #ifndef __NR_ioprio_get
 #define __NR_ioprio_get         (__NR_Linux + 278)
+#endif
+#ifndef __NR_prlimit64
+#define __NR_prlimit64          (__NR_Linux + 302)
 #endif
 #ifndef __NR_getrandom
 #define __NR_getrandom          (__NR_Linux + 317)
@@ -1760,6 +1781,9 @@ struct kernel_statfs {
 #ifndef __NR_getcpu
 #define __NR_getcpu             302
 #endif
+#ifndef __NR_prlimit64
+#define __NR_prlimit64          325
+#endif
 #ifndef __NR_getrandom
 #define __NR_getrandom          359
 #endif
@@ -1866,6 +1890,9 @@ struct kernel_statfs {
 #endif
 #ifndef __NR_fallocate
 #define __NR_fallocate          314
+#endif
+#ifndef __NR_prlimit64
+#define __NR_prlimit64          334
 #endif
 #ifndef __NR_getrandom
 #define __NR_getrandom          349
@@ -4136,6 +4163,9 @@ struct kernel_statfs {
                        unsigned long,  arg3,
                        unsigned long,  arg4,
                        unsigned long,  arg5)
+  LSS_INLINE _syscall4(int, prlimit64,  pid_t,  pid,  int,  resource,
+                       const struct kernel_rlimit *,  new_limit,
+                       struct kernel_rlimit *,  old_limit)
   LSS_INLINE _syscall4(long,    ptrace,          int,         r,
                        pid_t,          p, void *, a, void *, d)
   #if defined(__NR_quotactl)
@@ -5229,6 +5259,18 @@ struct kernel_statfs {
 # else
 #  error missing fork polyfill for this architecture
 # endif
+#endif
+
+#if !defined(__NR_getrlimit)
+  LSS_INLINE int LSS_NAME(getrlimit)(int r, struct kernel_rlimit *l) {
+    return LSS_NAME(prlimit64)(0, r, NULL, l);
+  }
+#endif
+
+#if !defined(__NR_setrlimit)
+  LSS_INLINE int LSS_NAME(setrlimit)(int r, const struct kernel_rlimit *l) {
+    return LSS_NAME(prlimit64)(0, r, l, NULL);
+  }
 #endif
 
 /* These restore the original values of these macros saved by the
