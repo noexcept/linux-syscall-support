@@ -35,6 +35,7 @@ the header itself as this list might be out of date.
 * [ARM 32-bit](https://en.wikipedia.org/wiki/ARM_architecture) EABI (i.e. armv6, armv7, etc...)
 * [ARM 32-bit](https://en.wikipedia.org/wiki/ARM_architecture) OABI
 * [Elbrus 2000](https://en.wikipedia.org/wiki/Elbrus_2000)
+* [LoongArch](https://loongson.github.io/LoongArch-Documentation) 64-bit
 * MIPS 32-bit n32 ABI
 * MIPS 32-bit o32 ABI
 * MIPS 64-bit n64 ABI
