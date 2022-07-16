@@ -130,6 +130,11 @@ extern "C" {
 #include <sgidefs.h>
 #endif
 #endif
+
+/* makedev is needed for architectures without fstat.                        */
+#if defined(__loongarch__)
+#include <sys/sysmacros.h>
+#endif
 #endif
 
 /* Some libcs, for example Android NDK and musl, #define these
@@ -640,6 +645,39 @@ struct kernel_stat {
 };
 #endif
 
+/* include/linux/stat.h                                                      */
+struct kernel_statx_timestamp {
+  int64_t   tv_sec;
+  uint32_t  tv_nsec;
+  int32_t   __reserved;
+};
+
+struct kernel_statx {
+  uint32_t  stx_mask;
+  uint32_t  stx_blksize;
+  uint64_t  stx_attributes;
+  uint32_t  stx_nlink;
+  uint32_t  stx_uid;
+  uint32_t  stx_gid;
+  uint16_t  stx_mode;
+  uint16_t  __spare0[1];
+  uint64_t  stx_ino;
+  uint64_t  stx_size;
+  uint64_t  stx_blocks;
+  uint64_t  stx_attributes_mask;
+  struct kernel_statx_timestamp stx_atime;
+  struct kernel_statx_timestamp stx_btime;
+  struct kernel_statx_timestamp stx_ctime;
+  struct kernel_statx_timestamp stx_mtime;
+  uint32_t  stx_rdev_major;
+  uint32_t  stx_rdev_minor;
+  uint32_t  stx_dev_major;
+  uint32_t  stx_dev_minor;
+  uint64_t  stx_mnt_id;
+  uint64_t  __spare2;
+  uint64_t  __spare3[12];
+};
+
 /* include/asm-{arm,aarch64,i386,mips,x86_64,ppc,s390}/statfs.h              */
 #ifdef __mips__
 #if _MIPS_SIM != _MIPS_SIM_ABI64
@@ -788,6 +826,15 @@ struct kernel_statfs {
 #endif
 #ifndef AT_REMOVEDIR
 #define AT_REMOVEDIR            0x200
+#endif
+#ifndef AT_NO_AUTOMOUNT
+#define AT_NO_AUTOMOUNT         0x800
+#endif
+#ifndef AT_EMPTY_PATH
+#define AT_EMPTY_PATH           0x1000
+#endif
+#ifndef STATX_BASIC_STATS
+#define STATX_BASIC_STATS       0x000007ffU
 #endif
 #ifndef MREMAP_FIXED
 #define MREMAP_FIXED            2
@@ -1009,6 +1056,9 @@ struct kernel_statfs {
 #ifndef __NR_getrandom
 #define __NR_getrandom          355
 #endif
+#ifndef __NR_statx
+#define __NR_statx              383
+#endif
 /* End of i386 definitions                                                   */
 #elif defined(__ARM_ARCH_3__) || defined(__ARM_EABI__)
 #ifndef __NR_setresuid
@@ -1119,6 +1169,9 @@ struct kernel_statfs {
 #ifndef __NR_getrandom
 #define __NR_getrandom          (__NR_SYSCALL_BASE + 384)
 #endif
+#ifndef __NR_statx
+#define __NR_statx              (__NR_SYSCALL_BASE + 397)
+#endif
 /* End of ARM 3/EABI definitions                                             */
 #elif defined(__aarch64__) || defined(__loongarch__) || defined(__riscv)
 #ifndef __NR_setxattr
@@ -1220,6 +1273,9 @@ struct kernel_statfs {
 #ifndef __NR_getrandom
 #define __NR_getrandom          278
 #endif
+#ifndef __NR_statx
+#define __NR_statx              291
+#endif
 /* End of aarch64/loongarch/riscv definitions                                */
 #elif defined(__x86_64__)
 #ifndef __NR_pread64
@@ -1313,6 +1369,9 @@ struct kernel_statfs {
 #endif
 #ifndef __NR_getrandom
 #define __NR_getrandom          318
+#endif
+#ifndef __NR_statx
+#define __NR_statx              332
 #endif
 /* End of x86-64 definitions                                                 */
 #elif defined(__mips__)
@@ -1418,6 +1477,9 @@ struct kernel_statfs {
 #ifndef __NR_getrandom
 #define __NR_getrandom          (__NR_Linux + 353)
 #endif
+#ifndef __NR_statx
+#define __NR_statx              (__NR_Linux + 366)
+#endif
 /* End of MIPS (old 32bit API) definitions */
 #elif  _MIPS_SIM == _MIPS_SIM_ABI64
 #ifndef __NR_pread64
@@ -1499,6 +1561,9 @@ struct kernel_statfs {
 #ifndef __NR_getrandom
 #define __NR_getrandom          (__NR_Linux + 313)
 #endif
+#ifndef __NR_statx
+#define __NR_statx              (__NR_Linux + 326)
+#endif
 /* End of MIPS (64bit API) definitions */
 #else
 #ifndef __NR_setresuid
@@ -1576,6 +1641,12 @@ struct kernel_statfs {
 #endif
 #ifndef __NR_ioprio_get
 #define __NR_ioprio_get         (__NR_Linux + 278)
+#endif
+#ifndef __NR_getrandom
+#define __NR_getrandom          (__NR_Linux + 317)
+#endif
+#ifndef __NR_statx
+#define __NR_statx              (__NR_Linux + 330)
 #endif
 /* End of MIPS (new 32bit API) definitions                                   */
 #endif
@@ -1689,6 +1760,12 @@ struct kernel_statfs {
 #ifndef __NR_getcpu
 #define __NR_getcpu             302
 #endif
+#ifndef __NR_getrandom
+#define __NR_getrandom          359
+#endif
+#ifndef __NR_statx
+#define __NR_statx              383
+#endif
 /* End of powerpc defininitions                                              */
 #elif defined(__s390__)
 #ifndef __NR_quotactl
@@ -1789,6 +1866,12 @@ struct kernel_statfs {
 #endif
 #ifndef __NR_fallocate
 #define __NR_fallocate          314
+#endif
+#ifndef __NR_getrandom
+#define __NR_getrandom          349
+#endif
+#ifndef __NR_statx
+#define __NR_statx              379
 #endif
 /* Some syscalls are named/numbered differently between s390 and s390x. */
 #ifdef __s390x__
@@ -4240,6 +4323,11 @@ struct kernel_statfs {
                          const char *,            p,
                          struct kernel_stat*,     b, int, f)
   #endif
+  #if defined(__NR_statx)
+    LSS_INLINE _syscall5(int, statx,
+                         int, dirfd, const char *, pathname, int, flags,
+                         unsigned int, mask, struct kernel_statx *, statxbuf)
+  #endif
   #if defined(__x86_64__) || defined(__s390x__)
     LSS_INLINE int LSS_NAME(getresgid32)(gid_t *rgid,
                                          gid_t *egid,
@@ -5043,6 +5131,40 @@ struct kernel_statfs {
   }
 #endif
 
+#if !defined(__NR_newfstatat)
+  LSS_INLINE int LSS_NAME(newfstatat)(int dirfd, const char * pathname,
+                                      struct kernel_stat* buf, int flags) {
+    struct kernel_statx tmp;
+    int ret;
+
+    if (!buf)
+      return -EFAULT;
+
+    ret = LSS_NAME(statx)(dirfd, pathname, AT_NO_AUTOMOUNT | flags,
+                          STATX_BASIC_STATS, &tmp);
+    if (ret)
+      return ret;
+
+    buf->st_dev = makedev(tmp.stx_dev_major, tmp.stx_dev_minor);
+    buf->st_ino = tmp.stx_ino;
+    buf->st_mode = tmp.stx_mode;
+    buf->st_nlink = tmp.stx_nlink;
+    buf->st_uid = tmp.stx_uid;
+    buf->st_gid = tmp.stx_gid;
+    buf->st_rdev = makedev(tmp.stx_rdev_major, tmp.stx_rdev_minor);
+    buf->st_size = (long) tmp.stx_size;
+    buf->st_blksize = (int) tmp.stx_blksize;
+    buf->st_blocks = (long) tmp.stx_blocks;
+    buf->st_atime_ = tmp.stx_atime.tv_sec;
+    buf->st_atime_nsec_ = tmp.stx_atime.tv_nsec;
+    buf->st_mtime_ = tmp.stx_mtime.tv_sec;
+    buf->st_mtime_nsec_ = tmp.stx_mtime.tv_nsec;
+    buf->st_ctime_ = tmp.stx_ctime.tv_sec;
+    buf->st_ctime_nsec_ = tmp.stx_ctime.tv_nsec;
+    return 0;
+  }
+#endif
+
 #if !defined(__NR_stat)
   LSS_INLINE int LSS_NAME(stat)(const char *pathname,
                                 struct kernel_stat *buf) {
@@ -5053,6 +5175,11 @@ struct kernel_statfs {
   LSS_INLINE int LSS_NAME(lstat)(const char *pathname,
                                  struct kernel_stat *buf) {
     return LSS_NAME(newfstatat)(AT_FDCWD, pathname, buf, AT_SYMLINK_NOFOLLOW);
+  }
+#endif
+#if !defined(__NR_fstat)
+  LSS_INLINE int LSS_NAME(fstat)(int f, struct kernel_stat *b) {
+    return LSS_NAME(newfstatat)(f, "", b, AT_EMPTY_PATH);
   }
 #endif
 
