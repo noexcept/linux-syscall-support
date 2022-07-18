@@ -4803,7 +4803,7 @@ struct kernel_statfs {
                                      LSS_SYSCALL_ARG(c), (uint64_t)(o));
     }
 
-    LSS_INLINE int LSS_NAME(readahead)(int f, loff_t o, unsigned c) {
+    LSS_INLINE int LSS_NAME(readahead)(int f, loff_t o, size_t c) {
       LSS_BODY(3, int, readahead, LSS_SYSCALL_ARG(f), (uint64_t)(o),
                                   LSS_SYSCALL_ARG(c));
     }
@@ -4863,9 +4863,9 @@ struct kernel_statfs {
       return LSS_NAME(_pwrite64)(fd, buf, count,
                                  LSS_LLARG_PAD o.arg[0], o.arg[1]);
     }
-    LSS_INLINE int LSS_NAME(readahead)(int fd, loff_t off, int len) {
+    LSS_INLINE int LSS_NAME(readahead)(int fd, loff_t off, size_t count) {
       union { loff_t off; unsigned arg[2]; } o = { off };
-      return LSS_NAME(_readahead)(fd, LSS_LLARG_PAD o.arg[0], o.arg[1], len);
+      return LSS_NAME(_readahead)(fd, LSS_LLARG_PAD o.arg[0], o.arg[1], count);
     }
   #endif
 #endif
