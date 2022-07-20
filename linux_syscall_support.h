@@ -1942,7 +1942,7 @@ struct kernel_statfs {
   #define LSS_RETURN(type, res)                                               \
     do {                                                                      \
       if ((unsigned long)(res) >= (unsigned long)(-4095)) {                   \
-        LSS_ERRNO = -(res);                                                   \
+        LSS_ERRNO = (int)(-(res));                                            \
         res = -1;                                                             \
       }                                                                       \
       return (type) (res);                                                    \
@@ -2845,7 +2845,7 @@ struct kernel_statfs {
                                    void *newtls, int *child_tidptr) {
       int64_t __res;
       {
-        register uint64_t __flags __asm__("x0") = flags;
+        register uint64_t __flags __asm__("x0") = (uint64_t)flags;
         register void *__stack __asm__("x1") = child_stack;
         register void *__ptid  __asm__("x2") = parent_tidptr;
         register void *__tls   __asm__("x3") = newtls;
