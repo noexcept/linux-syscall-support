@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ea5c12b_568c71ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115685
+      },
+      "writtenOn": "2022-07-26T16:13:56Z",
+      "side": 1,
+      "message": "Please review. Suggestions on proper code style for this change are welcome.",
+      "revId": "688890b28c04af68419817b2a3caecdaee44edde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
