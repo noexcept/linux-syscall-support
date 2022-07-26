@@ -52,6 +52,24 @@
       "parentUuid": "ea91ffa3_c49ac76a",
       "revId": "8291e90a64b4f78f9566be6bb33dcd551ea640a3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb9a525a_88529b2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000887
+      },
+      "writtenOn": "2022-07-26T17:01:12Z",
+      "side": 1,
+      "message": "Weird, there should be a README.chromium there, which would say such things, and then import the 3p repo into a subdirectory.\n\n\u003e We should probably upstream all our diffs, and also that probably shouldn\u0027t block this change.\n\nOK",
+      "parentUuid": "86bdc9fe_17c87682",
+      "revId": "8291e90a64b4f78f9566be6bb33dcd551ea640a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
