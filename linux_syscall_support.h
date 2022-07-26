@@ -4842,7 +4842,7 @@ struct kernel_statfs {
                            unsigned, o2)
       LSS_INLINE _syscall5(ssize_t, _pwrite64,       int,         f,
                            const void *,   b, size_t, c, unsigned, o1,
-                           long, o2)
+                           unsigned, o2)
       LSS_INLINE _syscall4(int, _readahead,          int,         f,
                            unsigned,       o1, unsigned, o2, size_t, c)
     #endif
