@@ -88,6 +88,24 @@
       "parentUuid": "b398fc5d_834734d4",
       "revId": "0d6435b731ef91d5182eaecff82ae96764222c48",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3ca1d37_ff624a71",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4845,
+      "author": {
+        "id": 1000887
+      },
+      "writtenOn": "2022-07-27T15:31:38Z",
+      "side": 0,
+      "message": "Oh, thanks.\n\nIt casts to `long` for all the args anyway, like: `(long)(arg5)`\n\nSo yeah I agree, we could change here.",
+      "parentUuid": "054d55f1_c080562c",
+      "revId": "0d6435b731ef91d5182eaecff82ae96764222c48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
