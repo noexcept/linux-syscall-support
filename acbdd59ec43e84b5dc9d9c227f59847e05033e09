@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9eda90df_07960644",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115629
+      },
+      "writtenOn": "2022-08-09T18:56:48Z",
+      "side": 1,
+      "message": "\u003e Patch Set 5:\n\u003e \n\u003e Change has been successfully rolled: http://go/roll-cl/a7dab3b794fad78e209d6f4e2ce19b29be142178\n\nLooks like this was rolled into Fuchsia. Could we get a Chromium roll for this?",
+      "revId": "acbdd59ec43e84b5dc9d9c227f59847e05033e09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
