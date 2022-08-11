@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49d49a94_da99d1fb",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1269,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-11T12:04:12Z",
+      "side": 1,
+      "message": "delete the comment",
+      "revId": "34e72a76d53895353cb2ea2531f24cf94e618bde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca3289ad_9546cacf",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1348,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-11T12:04:12Z",
+      "side": 1,
+      "message": "isn\u0027t this the x86_64 codepath ?  why do you need this change ?",
+      "revId": "34e72a76d53895353cb2ea2531f24cf94e618bde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9e75e0a_3cc8d54c",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3866,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-11T12:04:12Z",
+      "side": 1,
+      "message": "fix the \\ so they\u0027re aligned",
+      "revId": "34e72a76d53895353cb2ea2531f24cf94e618bde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a615f99c_8ba8a9de",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 4046,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-11T12:04:12Z",
+      "side": 1,
+      "message": "this should be changed to checking for getrlimit",
+      "revId": "34e72a76d53895353cb2ea2531f24cf94e618bde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf38340c_39a184b0",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 4305,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-11T12:04:12Z",
+      "side": 1,
+      "message": "keep things aligned",
+      "revId": "34e72a76d53895353cb2ea2531f24cf94e618bde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3c72799_b95f8209",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 5137,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-11T12:04:12Z",
+      "side": 1,
+      "message": "fix alignment",
+      "revId": "34e72a76d53895353cb2ea2531f24cf94e618bde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
