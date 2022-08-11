@@ -116,6 +116,7 @@ cross:
 		"mips64-unknown-linux-gnu-gcc -mabi=n32" \
 		"s390-ibm-linux-gnu-gcc" \
 		"s390x-ibm-linux-gnu-gcc" \
+		"loongarch64-unknown-linux-gnu-gcc" \
 	; do \
 		cxx=`echo "$$cc" | sed 's:-gcc:-g++:'`; \
 		$(MAKE) --no-print-directory CC="$$cc" CXX="$$cxx" cross_compile; \
