@@ -1,0 +1,261 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "647eb5cb_09362e9f",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4803,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-15T08:09:44Z",
+      "side": 1,
+      "message": "you\u0027re following existing convention, but this really should get improved.  newer arch builds support separate syscalls too and don\u0027t need socketcall.\n\nthese should be:\n\n```\n#if defined(__NR_recvmsg)\n...recvmsg...\n#endif\n...\n#if defined(__NR_socketcall)\n...socketcall...\n# if !defined(__NR_recvmsg)\n...recvmsg based on socketcall...\n# endif\n#endif\n```\n\nthen we wouldn\u0027t need any arch checks here at all",
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "509d28be_0a333b96",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5111,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-15T08:09:44Z",
+      "side": 1,
+      "message": "indent the * by a space",
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7557348_9122066c",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5112,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-15T08:09:44Z",
+      "side": 1,
+      "message": "this is polluting the macro namespace.  see the API docs at the top of the file around line 78.",
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c43e60e8_0bd2a0fe",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5115,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-15T08:09:44Z",
+      "side": 1,
+      "message": "move the first call (memset) to the next line.  only the define should be on the first line.",
+      "range": {
+        "startLine": 5115,
+        "startChar": 36,
+        "endLine": 5115,
+        "endChar": 42
+      },
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7775489a_ca3f9157",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5115,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-15T08:09:44Z",
+      "side": 1,
+      "message": "use `({...})` to declare pseudo code blocks like this, not just `{...}`",
+      "range": {
+        "startLine": 5115,
+        "startChar": 35,
+        "endLine": 5115,
+        "endChar": 36
+      },
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "373a7619_3b53d670",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5115,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-15T08:09:44Z",
+      "side": 1,
+      "message": "add spaces after the `,` in the func call",
+      "range": {
+        "startLine": 5115,
+        "startChar": 43,
+        "endLine": 5115,
+        "endChar": 49
+      },
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "926d52ec_6a56c1a7",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5116,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-15T08:09:44Z",
+      "side": 1,
+      "message": "add spaces around `\u003d` and `|` and `\u003c\u003c` operators\n\nif you\u0027re tight on space, split it up so it\u0027s only one shift per line",
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4a3e9f7_6149b871",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5120,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-15T08:09:44Z",
+      "side": 1,
+      "message": "only put one assignment per line",
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a1b4884_d942f2cb",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5129,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-15T08:09:44Z",
+      "side": 1,
+      "message": "the `}` should be on the next line by itself",
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b6bb421_1ffa8542",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5141,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-15T08:09:44Z",
+      "side": 1,
+      "message": "no space before the ,",
+      "range": {
+        "startLine": 5141,
+        "startChar": 45,
+        "endLine": 5141,
+        "endChar": 46
+      },
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91be4f9f_9adbb3e2",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5141,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-15T08:09:44Z",
+      "side": 1,
+      "message": "only one `;` needed",
+      "range": {
+        "startLine": 5141,
+        "startChar": 59,
+        "endLine": 5141,
+        "endChar": 61
+      },
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc5691a2_e196b9a6",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5142,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-15T08:09:44Z",
+      "side": 1,
+      "message": "don\u0027t need parens around `\u0026atx`\n\nif the CP_STATX_TO_STAT macro is incorrectly expanding its args, it should be handling that, not the caller\n\ncomes up below too",
+      "range": {
+        "startLine": 5142,
+        "startChar": 28,
+        "endLine": 5142,
+        "endChar": 34
+      },
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdd0bfce_cc934d19",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5206,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-15T08:09:44Z",
+      "side": 1,
+      "message": "delete this.  if you want to re-use this func, change your `LSS_REG` to produce variables that match the naming convention everyone else uses.",
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
