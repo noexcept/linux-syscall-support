@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e78d466f_08e9dc28",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 4803,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-08-16T06:11:08Z",
+      "side": 1,
+      "message": "great idea, I modified and removed the arch judgment here and above",
+      "parentUuid": "647eb5cb_09362e9f",
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "509d28be_0a333b96",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a231bd2a_d417561c",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5111,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-08-16T06:11:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "509d28be_0a333b96",
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7557348_9122066c",
@@ -48,6 +84,24 @@
       "writtenOn": "2022-08-15T08:09:44Z",
       "side": 1,
       "message": "this is polluting the macro namespace.  see the API docs at the top of the file around line 78.",
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8ffc8d2_90c74ecc",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5112,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-08-16T06:11:08Z",
+      "side": 1,
+      "message": "I wrote function to replace CP_STATX_TO_STAT macro",
+      "parentUuid": "e7557348_9122066c",
       "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -121,6 +175,78 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57014a6a_f3e9dde9",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5115,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-08-16T06:11:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "373a7619_3b53d670",
+      "range": {
+        "startLine": 5115,
+        "startChar": 43,
+        "endLine": 5115,
+        "endChar": 49
+      },
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1b34b13_44209609",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5115,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-08-16T06:11:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c43e60e8_0bd2a0fe",
+      "range": {
+        "startLine": 5115,
+        "startChar": 36,
+        "endLine": 5115,
+        "endChar": 42
+      },
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e6d3d25_8c5b36c3",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5115,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-08-16T06:11:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7775489a_ca3f9157",
+      "range": {
+        "startLine": 5115,
+        "startChar": 35,
+        "endLine": 5115,
+        "endChar": 36
+      },
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "926d52ec_6a56c1a7",
@@ -134,6 +260,24 @@
       "writtenOn": "2022-08-15T08:09:44Z",
       "side": 1,
       "message": "add spaces around `\u003d` and `|` and `\u003c\u003c` operators\n\nif you\u0027re tight on space, split it up so it\u0027s only one shift per line",
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01e20dce_503b9284",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5116,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-08-16T06:11:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "926d52ec_6a56c1a7",
       "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -155,6 +299,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fa08003_e8c7c4e7",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5120,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-08-16T06:11:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4a3e9f7_6149b871",
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a1b4884_d942f2cb",
@@ -168,6 +330,24 @@
       "writtenOn": "2022-08-15T08:09:44Z",
       "side": 1,
       "message": "the `}` should be on the next line by itself",
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81741803_549a0c39",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5129,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-08-16T06:11:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a1b4884_d942f2cb",
       "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -218,6 +398,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50668c9e_6a32f51c",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5141,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-08-16T06:11:08Z",
+      "side": 1,
+      "message": "already fixed",
+      "parentUuid": "91be4f9f_9adbb3e2",
+      "range": {
+        "startLine": 5141,
+        "startChar": 59,
+        "endLine": 5141,
+        "endChar": 61
+      },
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "792ff294_cff9d2b7",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5141,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-08-16T06:11:08Z",
+      "side": 1,
+      "message": "already fixed",
+      "parentUuid": "2b6bb421_1ffa8542",
+      "range": {
+        "startLine": 5141,
+        "startChar": 45,
+        "endLine": 5141,
+        "endChar": 46
+      },
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc5691a2_e196b9a6",
@@ -241,6 +469,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73765bee_edea3dbb",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5142,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-08-16T06:11:08Z",
+      "side": 1,
+      "message": "Use sys_cp_stat_statx instead of CP_STATX_TO_STAT",
+      "parentUuid": "cc5691a2_e196b9a6",
+      "range": {
+        "startLine": 5142,
+        "startChar": 28,
+        "endLine": 5142,
+        "endChar": 34
+      },
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fdd0bfce_cc934d19",
@@ -254,6 +506,24 @@
       "writtenOn": "2022-08-15T08:09:44Z",
       "side": 1,
       "message": "delete this.  if you want to re-use this func, change your `LSS_REG` to produce variables that match the naming convention everyone else uses.",
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75a6d06e_627483d7",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5206,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-08-16T06:11:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdd0bfce_cc934d19",
       "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
