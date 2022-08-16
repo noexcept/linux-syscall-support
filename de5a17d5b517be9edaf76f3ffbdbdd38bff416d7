@@ -106,6 +106,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8ddfc1f_663f1786",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 5112,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-16T10:55:39Z",
+      "side": 1,
+      "message": "i meant you\u0027d name the macro `LSS_CP_STATX_TO_STAT`, but a function works too.",
+      "parentUuid": "e8ffc8d2_90c74ecc",
+      "revId": "de5a17d5b517be9edaf76f3ffbdbdd38bff416d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c43e60e8_0bd2a0fe",
