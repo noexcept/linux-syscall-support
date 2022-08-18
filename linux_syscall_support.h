@@ -4860,8 +4860,12 @@ struct kernel_statfs {
     LSS_INLINE ssize_t LSS_NAME(pwrite64)(int fd, const void *buf,
                                           size_t count, loff_t off) {
       union { loff_t off; unsigned arg[2]; } o = { off };
-      return LSS_NAME(_pwrite64)(fd, buf, count,
-                                 LSS_LLARG_PAD o.arg[0], o.arg[1]);
+      return LSS_NAME(_pwrite64)(fd, buf, count, LSS_LLARG_PAD o.arg[0],
+    #if defined(__ARM_EABI__) || defined(__mips__)
+                                 o.arg[1]);
+    #else
+                                 static_cast<long>(o.arg[1]));
+    #endif
     }
     LSS_INLINE int LSS_NAME(readahead)(int fd, loff_t off, size_t count) {
       union { loff_t off; unsigned arg[2]; } o = { off };
