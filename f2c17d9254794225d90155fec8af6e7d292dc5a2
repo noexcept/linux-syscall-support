@@ -16,6 +16,24 @@
       "message": "i don\u0027t think using arch checks to control casting/type behavior is ever correct",
       "revId": "f2c17d9254794225d90155fec8af6e7d292dc5a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1a415bb_231ce9b6",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 5047,
+      "author": {
+        "id": 1000805
+      },
+      "writtenOn": "2022-08-18T19:15:17Z",
+      "side": 1,
+      "message": "It\u0027s because just above here we use the same arch checks to control the type of the `o2` argument to the function.",
+      "parentUuid": "11723b06_08a4196c",
+      "revId": "f2c17d9254794225d90155fec8af6e7d292dc5a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
