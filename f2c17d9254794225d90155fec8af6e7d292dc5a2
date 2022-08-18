@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11723b06_08a4196c",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 5047,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-18T18:35:39Z",
+      "side": 1,
+      "message": "i don\u0027t think using arch checks to control casting/type behavior is ever correct",
+      "revId": "f2c17d9254794225d90155fec8af6e7d292dc5a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
