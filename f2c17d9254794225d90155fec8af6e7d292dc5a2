@@ -69,6 +69,24 @@
       "parentUuid": "a1a415bb_231ce9b6",
       "revId": "f2c17d9254794225d90155fec8af6e7d292dc5a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92bfd833_389dcfda",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 5047,
+      "author": {
+        "id": 1000805
+      },
+      "writtenOn": "2022-08-20T17:09:30Z",
+      "side": 1,
+      "message": "Hmm, I think it never got rolled into Chromium.  I\u0027ll fix that.",
+      "parentUuid": "b5a03ca7_074ee506",
+      "revId": "f2c17d9254794225d90155fec8af6e7d292dc5a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
