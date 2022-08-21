@@ -5110,23 +5110,23 @@ struct kernel_statx {
     memset(to, 0, sizeof(struct kernel_stat));
     to->st_dev = ((from->stx_dev_minor & 0xff) |
                  ((from->stx_dev_major & 0xfff) << 8) |
-                 ((from->stx_dev_minor & ~0xff) << 12));
+                 ((from->stx_dev_minor & ~0xffu) << 12));
     to->st_rdev = ((from->stx_rdev_minor & 0xff) |
                   ((from->stx_rdev_major & 0xfff) << 8) |
-                  ((from->stx_rdev_minor & ~0xff) << 12));
+                  ((from->stx_rdev_minor & ~0xffu) << 12));
     to->st_ino = from->stx_ino;
     to->st_mode = from->stx_mode;
     to->st_nlink = from->stx_nlink;
     to->st_uid = from->stx_uid;
     to->st_gid = from->stx_gid;
-    to->st_atime_ = from->stx_atime.tv_sec;
+    to->st_atime_ = static_cast<decltype(to->st_atime_)>(from->stx_atime.tv_sec);
     to->st_atime_nsec_ = from->stx_atime.tv_nsec;
-    to->st_mtime_ = from->stx_mtime.tv_sec;
+    to->st_mtime_ = static_cast<decltype(to->st_mtime_)>(from->stx_mtime.tv_sec);
     to->st_mtime_nsec_ = from->stx_mtime.tv_nsec;
-    to->st_ctime_ = from->stx_ctime.tv_sec;
+    to->st_ctime_ = static_cast<decltype(to->st_ctime_)>(from->stx_ctime.tv_sec);
     to->st_ctime_nsec_ = from->stx_ctime.tv_nsec;
-    to->st_size = from->stx_size;
-    to->st_blocks = from->stx_blocks;
+    to->st_size = static_cast<decltype(to->st_size)>(from->stx_size);
+    to->st_blocks = static_cast<decltype(to->st_blocks)>(from->stx_blocks);
     to->st_blksize = from->stx_blksize;
   }
 #endif
