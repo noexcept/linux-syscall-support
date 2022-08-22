@@ -55,6 +55,10 @@ all: check
 %_test: %.c test_skel.h $(top_srcdir)/linux_syscall_support.h
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) -o $@ $<
 
+# Force building C as C++ code to improve compile-time coverage.
+%_cc_test: %.c test_skel.h $(top_srcdir)/linux_syscall_support.h
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS) -o $@ $<
+
 %_test: %.cc test_skel.h $(top_srcdir)/linux_syscall_support.h
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $(LDFLAGS) -o $@ $<
 
@@ -72,10 +76,10 @@ all: check
 		exit 1; \
 	fi
 
-ALL_TEST_TARGETS = $(TESTS:=_test)
+ALL_TEST_TARGETS = $(TESTS:=_test) $(TESTS:=_cc_test)
 compile_tests: $(ALL_TEST_TARGETS)
 
-ALL_RUN_TARGETS = $(TESTS:=_run)
+ALL_RUN_TARGETS = $(TESTS:=_run) $(TESTS:=_cc_run)
 check: $(ALL_RUN_TARGETS)
 
 # The "tempfile" targets are the names we use with temp files.
