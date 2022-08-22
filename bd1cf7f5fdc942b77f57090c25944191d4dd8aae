@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d2512ef_b3addae1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-22T15:57:33Z",
+      "side": 1,
+      "message": "yes, lss is used in C code.  we have tests for it, but i guess we don\u0027t have a CQ/recipe for it currently \"/.",
+      "revId": "bd1cf7f5fdc942b77f57090c25944191d4dd8aae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "869e564a_b5aceb5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-22T15:57:33Z",
+      "side": 1,
+      "message": "hmm, an interesting idea.  however, i don\u0027t think we\u0027ve utilized the `lss_xxx` namespace before.  the few structs we have defined utilize `kernel_xxx`.  seems like we should be consistent here.",
+      "revId": "bd1cf7f5fdc942b77f57090c25944191d4dd8aae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
