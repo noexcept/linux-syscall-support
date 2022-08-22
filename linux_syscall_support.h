@@ -365,6 +365,9 @@ struct kernel_sockaddr {
 /* include/asm-{arm,aarch64,i386,mips,ppc,s390}/stat.h                       */
 #ifdef __mips__
 #if _MIPS_SIM == _MIPS_SIM_ABI64
+typedef long long kernel_off_t;
+typedef unsigned long long kernel_blkcnt_t;
+typedef unsigned kernel_timespec;
 struct kernel_stat {
 #else
 struct kernel_stat64 {
@@ -459,6 +462,9 @@ struct kernel_stat64 {
 
 /* include/asm-{arm,aarch64,i386,mips,x86_64,ppc,s390}/stat.h                */
 #if defined(__i386__) || defined(__ARM_ARCH_3__) || defined(__ARM_EABI__)
+typedef unsigned kernel_off_t;
+typedef unsigned kernel_blkcnt_t;
+typedef unsigned kernel_timespec;
 struct kernel_stat {
   /* The kernel headers suggest that st_dev and st_rdev should be 32bit
    * quantities encoding 12bit major and 20bit minor numbers in an interleaved
@@ -474,19 +480,22 @@ struct kernel_stat {
   unsigned short     st_gid;
   unsigned short     st_rdev;
   short              pad2;
-  unsigned           st_size;
+  kernel_off_t       st_size;
   unsigned           st_blksize;
-  unsigned           st_blocks;
-  unsigned           st_atime_;
+  kernel_blkcnt_t    st_blocks;
+  kernel_timespec    st_atime_;
   unsigned           st_atime_nsec_;
-  unsigned           st_mtime_;
+  kernel_timespec    st_mtime_;
   unsigned           st_mtime_nsec_;
-  unsigned           st_ctime_;
+  kernel_timespec    st_ctime_;
   unsigned           st_ctime_nsec_;
   unsigned           __unused4;
   unsigned           __unused5;
 };
 #elif defined(__x86_64__)
+typedef int64_t kernel_off_t;
+typedef int64_t kernel_blkcnt_t;
+typedef uint64_t kernel_timespec;
 struct kernel_stat {
   uint64_t           st_dev;
   uint64_t           st_ino;
@@ -496,18 +505,21 @@ struct kernel_stat {
   unsigned           st_gid;
   unsigned           __pad0;
   uint64_t           st_rdev;
-  int64_t            st_size;
+  kernel_off_t       st_size;
   int64_t            st_blksize;
-  int64_t            st_blocks;
-  uint64_t           st_atime_;
+  kernel_blkcnt_t    st_blocks;
+  kernel_timespec    st_atime_;
   uint64_t           st_atime_nsec_;
-  uint64_t           st_mtime_;
+  kernel_timespec    st_mtime_;
   uint64_t           st_mtime_nsec_;
-  uint64_t           st_ctime_;
+  kernel_timespec    st_ctime_;
   uint64_t           st_ctime_nsec_;
   int64_t            __unused4[3];
 };
 #elif defined(__PPC__)
+typedef long kernel_off_t;
+typedef unsigned long kernel_blkcnt_t;
+typedef unsigned long kernel_timespec;
 struct kernel_stat {
   unsigned           st_dev;
   unsigned long      st_ino;      // ino_t
@@ -516,19 +528,22 @@ struct kernel_stat {
   unsigned           st_uid;      // uid_t
   unsigned           st_gid;      // gid_t
   unsigned           st_rdev;
-  long               st_size;     // off_t
+  kernel_off_t       st_size;     // off_t
   unsigned long      st_blksize;
-  unsigned long      st_blocks;
-  unsigned long      st_atime_;
+  kernel_blkcnt_t    st_blocks;
+  kernel_timespec    st_atime_;
   unsigned long      st_atime_nsec_;
-  unsigned long      st_mtime_;
+  kernel_timespec    st_mtime_;
   unsigned long      st_mtime_nsec_;
-  unsigned long      st_ctime_;
+  kernel_timespec    st_ctime_;
   unsigned long      st_ctime_nsec_;
   unsigned long      __unused4;
   unsigned long      __unused5;
 };
 #elif (defined(__mips__) && _MIPS_SIM != _MIPS_SIM_ABI64)
+typedef long kernel_off_t;
+typedef int kernel_blkcnt_t;
+typedef long kernel_timespec;
 struct kernel_stat {
   unsigned           st_dev;
   int                st_pad1[3];
@@ -539,19 +554,22 @@ struct kernel_stat {
   unsigned           st_gid;
   unsigned           st_rdev;
   int                st_pad2[2];
-  long               st_size;
+  kernel_off_t       st_size;
   int                st_pad3;
-  long               st_atime_;
+  kernel_timespec    st_atime_;
   long               st_atime_nsec_;
-  long               st_mtime_;
+  kernel_timespec    st_mtime_;
   long               st_mtime_nsec_;
-  long               st_ctime_;
+  kernel_timespec    st_ctime_;
   long               st_ctime_nsec_;
   int                st_blksize;
-  int                st_blocks;
+  kernel_blkcnt_t    st_blocks;
   int                st_pad4[14];
 };
 #elif defined(__aarch64__) || defined(__riscv) || defined(__loongarch_lp64)
+typedef long kernel_off_t;
+typedef long kernel_blkcnt_t;
+typedef long kernel_timespec;
 struct kernel_stat {
   unsigned long      st_dev;
   unsigned long      st_ino;
@@ -561,20 +579,23 @@ struct kernel_stat {
   unsigned int       st_gid;
   unsigned long      st_rdev;
   unsigned long      __pad1;
-  long               st_size;
+  kernel_off_t       st_size;
   int                st_blksize;
   int                __pad2;
-  long               st_blocks;
-  long               st_atime_;
+  kernel_blkcnt_t    st_blocks;
+  kernel_timespec    st_atime_;
   unsigned long      st_atime_nsec_;
-  long               st_mtime_;
+  kernel_timespec    st_mtime_;
   unsigned long      st_mtime_nsec_;
-  long               st_ctime_;
+  kernel_timespec    st_ctime_;
   unsigned long      st_ctime_nsec_;
   unsigned int       __unused4;
   unsigned int       __unused5;
 };
 #elif defined(__s390x__)
+typedef unsigned long kernel_off_t;
+typedef long kernel_blkcnt_t;
+typedef unsigned long kernel_timespec;
 struct kernel_stat {
   unsigned long      st_dev;
   unsigned long      st_ino;
@@ -584,18 +605,21 @@ struct kernel_stat {
   unsigned int       st_gid;
   unsigned int       __pad1;
   unsigned long      st_rdev;
-  unsigned long      st_size;
-  unsigned long      st_atime_;
+  kernel_off_t       st_size;
+  kernel_timespec    st_atime_;
   unsigned long      st_atime_nsec_;
-  unsigned long      st_mtime_;
+  kernel_timespec    st_mtime_;
   unsigned long      st_mtime_nsec_;
-  unsigned long      st_ctime_;
+  kernel_timespec    st_ctime_;
   unsigned long      st_ctime_nsec_;
   unsigned long      st_blksize;
-  long               st_blocks;
+  kernel_blkcnt_t    st_blocks;
   unsigned long      __unused[3];
 };
 #elif defined(__s390__)
+typedef unsigned long kernel_off_t;
+typedef unsigned long kernel_blkcnt_t;
+typedef unsigned long kernel_timespec;
 struct kernel_stat {
   unsigned short     st_dev;
   unsigned short     __pad1;
@@ -606,19 +630,22 @@ struct kernel_stat {
   unsigned short     st_gid;
   unsigned short     st_rdev;
   unsigned short     __pad2;
-  unsigned long      st_size;
+  kernel_off_t       st_size;
   unsigned long      st_blksize;
-  unsigned long      st_blocks;
-  unsigned long      st_atime_;
+  kernel_blkcnt_t    st_blocks;
+  kernel_timespec    st_atime_;
   unsigned long      st_atime_nsec_;
-  unsigned long      st_mtime_;
+  kernel_timespec    st_mtime_;
   unsigned long      st_mtime_nsec_;
-  unsigned long      st_ctime_;
+  kernel_timespec    st_ctime_;
   unsigned long      st_ctime_nsec_;
   unsigned long      __unused4;
   unsigned long      __unused5;
 };
 #elif defined(__e2k__)
+typedef unsigned long kernel_off_t;
+typedef unsigned long kernel_blkcnt_t;
+typedef unsigned long kernel_timespec;
 struct kernel_stat {
   unsigned long      st_dev;
   unsigned long      st_ino;
@@ -627,14 +654,14 @@ struct kernel_stat {
   unsigned int       st_uid;
   unsigned int       st_gid;
   unsigned long      st_rdev;
-  unsigned long      st_size;
+  kernel_off_t       st_size;
   unsigned long      st_blksize;
-  unsigned long      st_blocks;
-  unsigned long      st_atime_;
+  kernel_blkcnt_t    st_blocks;
+  kernel_timespec    st_atime_;
   unsigned long      st_atime_nsec_;
-  unsigned long      st_mtime_;
+  kernel_timespec    st_mtime_;
   unsigned long      st_mtime_nsec_;
-  unsigned long      st_ctime_;
+  kernel_timespec    st_ctime_;
   unsigned long      st_ctime_nsec_;
 };
 #endif
@@ -5119,14 +5146,14 @@ struct kernel_statx {
     to->st_nlink = from->stx_nlink;
     to->st_uid = from->stx_uid;
     to->st_gid = from->stx_gid;
-    to->st_atime_ = static_cast<decltype(to->st_atime_)>(from->stx_atime.tv_sec);
+    to->st_atime_ = (kernel_timespec)(from->stx_atime.tv_sec);
     to->st_atime_nsec_ = from->stx_atime.tv_nsec;
-    to->st_mtime_ = static_cast<decltype(to->st_mtime_)>(from->stx_mtime.tv_sec);
+    to->st_mtime_ = (kernel_timespec)(from->stx_mtime.tv_sec);
     to->st_mtime_nsec_ = from->stx_mtime.tv_nsec;
-    to->st_ctime_ = static_cast<decltype(to->st_ctime_)>(from->stx_ctime.tv_sec);
+    to->st_ctime_ = (kernel_timespec)(from->stx_ctime.tv_sec);
     to->st_ctime_nsec_ = from->stx_ctime.tv_nsec;
-    to->st_size = static_cast<decltype(to->st_size)>(from->stx_size);
-    to->st_blocks = static_cast<decltype(to->st_blocks)>(from->stx_blocks);
+    to->st_size = (kernel_off_t)(from->stx_size);
+    to->st_blocks = (kernel_blkcnt_t)(from->stx_blocks);
     to->st_blksize = from->stx_blksize;
   }
 #endif
