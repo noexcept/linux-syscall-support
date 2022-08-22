@@ -69,6 +69,24 @@
       "parentUuid": "869e564a_b5aceb5b",
       "revId": "bd1cf7f5fdc942b77f57090c25944191d4dd8aae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1625e85a_acac3d24",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-08-22T17:06:53Z",
+      "side": 1,
+      "message": "line 78 is referring to literally `LSS_xxx` as in preprocessor defines.  i agree it\u0027s perhaps a little too subtle for its own good.\n\nmaybe we want to rename all of `kernel_xxx` to `lss_xxx` (and perhaps provide an override config knob).  it\u0027s not something i\u0027ve given a lot of thought to because things are largely \"just working\" and no one has complained thus far.",
+      "parentUuid": "087495d6_a265bb0d",
+      "revId": "bd1cf7f5fdc942b77f57090c25944191d4dd8aae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
