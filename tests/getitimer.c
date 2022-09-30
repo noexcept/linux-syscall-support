@@ -31,7 +31,7 @@
 
 int main(int argc, char *argv[]) {
   // We need an invalid timer value. The assert()'s below should
-  // be static asserts but it is not avalible in older C versions.
+  // be static asserts but it is not available in older C versions.
 #define kInvalidTimer 9999
   assert(kInvalidTimer != ITIMER_REAL);
   assert(kInvalidTimer != ITIMER_VIRTUAL);
