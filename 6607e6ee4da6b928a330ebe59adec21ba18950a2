@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f025fd5d_bccede74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-10T13:22:01Z",
+      "side": 1,
+      "message": "assembler constraints should be expressed as assembler constraints, not rely on wonky `volatile` behavior\nhttps://gcc.gnu.org/onlinedocs/gcc/Constraints.html",
+      "revId": "6607e6ee4da6b928a330ebe59adec21ba18950a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
