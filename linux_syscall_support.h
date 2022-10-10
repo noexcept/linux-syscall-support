@@ -3949,7 +3949,7 @@ struct kernel_statx {
     #undef  LSS_BODY
     #define LSS_BODY(type,name,args...)                                       \
           register int64_t __res_a0 __asm__("a0");                            \
-          int64_t __res;                                                      \
+          volatile int64_t __res;                                             \
           __asm__ __volatile__ ("li.d $a7, %1\n"                              \
                                 "syscall 0x0\n"                               \
                                 : "=r"(__res_a0)                              \
@@ -4010,7 +4010,7 @@ struct kernel_statx {
     LSS_INLINE int LSS_NAME(clone)(int (*fn)(void *), void *child_stack,
                                    int flags, void *arg, int *parent_tidptr,
                                    void *newtls, int *child_tidptr) {
-      int64_t __res;
+      volatile int64_t __res;
       {
         register int64_t __res_a0 __asm__("a0");
         register uint64_t __flags __asm__("a0") = flags;
