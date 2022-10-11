@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e64fc205_29cc670b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2022-10-11T16:31:27Z",
+      "side": 1,
+      "message": "can you fix your ~/.gitconfig settings too to use your name instead of username ?",
+      "revId": "a459a21ec270ee7e6fb3c02eb95bd7b558ae08db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2b8b82f6_0d35c289",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
