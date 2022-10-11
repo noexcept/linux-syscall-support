@@ -16,6 +16,24 @@
       "message": "assembler constraints should be expressed as assembler constraints, not rely on wonky `volatile` behavior\nhttps://gcc.gnu.org/onlinedocs/gcc/Constraints.html",
       "revId": "6607e6ee4da6b928a330ebe59adec21ba18950a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9654ce3_d79dbdee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-11T07:28:25Z",
+      "side": 1,
+      "message": "I tried to change it to assembler constraints\n```\n#define LSS_BODY(type,name,args...)                                   \\\n    int64_t __res;                                                    \\\n    __asm__ __volatile__ (\"li.d $a7, %1\\n\"                            \\    \n                        \"syscall 0x0\\n\"                               \\    \n                        \"move %0, $a0\\n\"                              \\    \n                        : \"\u003dr\"(__res)                                 \\    \n                        : \"i\"(__NR_##name) , ## args                  \\    \n                        : LSS_SYSCALL_CLOBBERS);                      \\\n    LSS_RETURN(type, __res)\n ```\nbut in the test, there is still coredump.\n```\n[ RUN      ] ExceptionHandlerTest.ExternalDumper\nSegmentation fault (core dumped)\n```\nthe inline function is embedded in the caller function and may be optimized with the caller. \nuse `volatile` to save the return value to memory to avoid optimization",
+      "parentUuid": "f025fd5d_bccede74",
+      "revId": "6607e6ee4da6b928a330ebe59adec21ba18950a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
