@@ -3949,11 +3949,11 @@ struct kernel_statx {
     #undef  LSS_BODY
     #define LSS_BODY(type,name,args...)                                       \
           register int64_t __res_a0 __asm__("a0");                            \
+          register int64_t __a7 __asm__("a7") = __NR_##name;                  \
           int64_t __res;                                                      \
-          __asm__ __volatile__ ("li.d $a7, %1\n"                              \
-                                "syscall 0x0\n"                               \
+          __asm__ __volatile__ ("syscall 0x0\n"                               \
                                 : "=r"(__res_a0)                              \
-                                : "i"(__NR_##name) , ## args                  \
+                                : "r"(__a7), ## args                          \
                                 : LSS_SYSCALL_CLOBBERS);                      \
           __res = __res_a0;                                                   \
           LSS_RETURN(type, __res)
@@ -4055,7 +4055,7 @@ struct kernel_statx {
                              : "r"(fn), "r"(__stack), "r"(__flags), "r"(arg),
                                "r"(__ptid), "r"(__tls), "r"(__ctid),
                                "i"(__NR_clone), "i"(__NR_exit)
-                             : LSS_SYSCALL_CLOBBERS);
+                             : "a7", LSS_SYSCALL_CLOBBERS);
       __res = __res_a0;
       }
       LSS_RETURN(int, __res);
