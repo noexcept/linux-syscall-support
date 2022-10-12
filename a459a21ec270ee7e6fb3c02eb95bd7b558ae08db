@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec09b3a3_05f36e07",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-12T02:06:05Z",
+      "side": 1,
+      "message": "fixed，thanks😊",
+      "parentUuid": "e64fc205_29cc670b",
+      "revId": "a459a21ec270ee7e6fb3c02eb95bd7b558ae08db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b8b82f6_0d35c289",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-10-11T16:30:49Z",
       "side": 1,
       "message": "scope this slightly to show that it\u0027s specific to loongson\n\n`loongson: add ...`",
+      "revId": "a459a21ec270ee7e6fb3c02eb95bd7b558ae08db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e519e83a_14de465c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1548943
+      },
+      "writtenOn": "2022-10-12T02:06:05Z",
+      "side": 1,
+      "message": "I changed to use the loongarch64 as the scope.",
+      "parentUuid": "2b8b82f6_0d35c289",
       "revId": "a459a21ec270ee7e6fb3c02eb95bd7b558ae08db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
