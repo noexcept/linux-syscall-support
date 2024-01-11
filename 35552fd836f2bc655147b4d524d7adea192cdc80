@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41c2f0bb_063e853c",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4640,
+      "author": {
+        "id": 1300299
+      },
+      "writtenOn": "2024-01-11T02:19:41Z",
+      "side": 1,
+      "message": "Can you comment this change in the description? My understanding is that you are trying to skip defining an \"sys_mmap2\" function for architectures that don\u0027t support it, but it\u0027s not mentioned in the description.\n\nIn particular, is e2k\u0027s behavior supposed to be changing? I don\u0027t know the e2k architecture, but either it has __NP_mmap2 defined (in which case we\u0027ve changed from doing a direct _syscall6 to implement mmap to implementing mmap in terms of mmap2) or it doesn\u0027t have __NP_mmap2 defined (in which case there\u0027s no longer a sys_mmap2)",
+      "range": {
+        "startLine": 4640,
+        "startChar": 0,
+        "endLine": 4640,
+        "endChar": 25
+      },
+      "revId": "35552fd836f2bc655147b4d524d7adea192cdc80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
