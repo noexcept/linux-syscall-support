@@ -22,6 +22,30 @@
       },
       "revId": "35552fd836f2bc655147b4d524d7adea192cdc80",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b971017_fbbd5d24",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4640,
+      "author": {
+        "id": 1115084
+      },
+      "writtenOn": "2024-01-11T06:47:26Z",
+      "side": 1,
+      "message": "the commit message explicitly talks about not requiring architectures to define mmap2.  this might not be explicitly need right now, but it sets up for future arches to merge w/out having to add more exceptions.\n\nthis particular mmap2 block could be hoisted out of the larger set of arch checks above so that it does freely standalone, then there wouldn\u0027t be confusion as to when it activates (or doesn\u0027t).\n\ne2k is an unmerged architecture.  it isn\u0027t in the upstream linux kernel or toolchain.  so whether it keeps working is up to the e2k people to make sure ... we have no way of verifying their code, and if they can\u0027t merge their work into the proper open source channels, then we aren\u0027t spending time on it.  in this particular case, if they define mmap2, then they\u0027ll get mmap based on _mmap2.  if they don\u0027t, then they won\u0027t, and they\u0027ll only get mmap.\n\nmaking this logic more independent of arch checks is kind of the point: i suspect e2k made a mistake and should have been listed, but their usage/testing didn\u0027t pick it up.  and rather than force new ports to keep running into this, try and make the logic dynamic based on the syscalls themselves, and written towards the default/common/asm-generic APIs.",
+      "parentUuid": "41c2f0bb_063e853c",
+      "range": {
+        "startLine": 4640,
+        "startChar": 0,
+        "endLine": 4640,
+        "endChar": 25
+      },
+      "revId": "35552fd836f2bc655147b4d524d7adea192cdc80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
