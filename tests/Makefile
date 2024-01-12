@@ -51,6 +51,8 @@ TESTS = \
 	getrandom \
 	lstat \
 	mmap \
+	open \
+	openat \
 	pipe \
 	pipe2 \
 	prctl \
