@@ -70,6 +70,30 @@
       },
       "revId": "35552fd836f2bc655147b4d524d7adea192cdc80",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59d47ba5_2d961960",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4640,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-01-12T15:28:22Z",
+      "side": 1,
+      "message": "unfortunately, \"e2k missed a spot\" is way too common when it comes to people submitting new ports.  lss historically has operated on a lot of opt-in if-arch style checks rather than if-syscall.  i\u0027ve been slowly trying to convert more to the latter so new ports require less work, people don\u0027t miss things, and we duplicate less, and it\u0027s easier to read.\n\nthanks for being detailed in the review.",
+      "parentUuid": "a6db8939_ee47e20e",
+      "range": {
+        "startLine": 4640,
+        "startChar": 0,
+        "endLine": 4640,
+        "endChar": 25
+      },
+      "revId": "35552fd836f2bc655147b4d524d7adea192cdc80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
