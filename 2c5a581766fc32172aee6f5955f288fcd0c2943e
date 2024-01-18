@@ -22,6 +22,30 @@
       },
       "revId": "2c5a581766fc32172aee6f5955f288fcd0c2943e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6ca588c_d08de59e",
+        "filename": "tests/sigreturn.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1548352
+      },
+      "writtenOn": "2024-01-18T20:22:03Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "2114be78_e8325bd8",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 16
+      },
+      "revId": "2c5a581766fc32172aee6f5955f288fcd0c2943e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
