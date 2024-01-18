@@ -326,6 +326,24 @@
       "parentUuid": "2853b376_e1c80833",
       "revId": "e3f3fea061fcc532476c73fbe2149ce7bf7dc4ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cc75660_6ff38192",
+        "filename": "tests/sigreturn.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1548352
+      },
+      "writtenOn": "2024-01-18T20:12:19Z",
+      "side": 1,
+      "message": "Latest patch has one newline, I think the original comment is now resolved.",
+      "parentUuid": "cf14f4aa_0fd66e1e",
+      "revId": "e3f3fea061fcc532476c73fbe2149ce7bf7dc4ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
