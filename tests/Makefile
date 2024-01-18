@@ -47,6 +47,7 @@ TESTS = \
 	mmap \
 	setitimer \
 	sigaction \
+	sigreturn \
 	sigtimedwait \
 	stat \
 	unlink \

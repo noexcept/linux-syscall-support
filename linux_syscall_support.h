@@ -3024,6 +3024,34 @@ struct kernel_statx {
       }
       LSS_RETURN(int, __res);
     }
+    LSS_INLINE void (*LSS_NAME(restore_rt)(void))(void) {
+      /* On aarch64, the kernel does not know how to return from
+       * a signal handler. Instead, it relies on user space to provide a
+       * restorer function that calls the rt_sigreturn() system call.
+       * Unfortunately, we cannot just reference the glibc version of this
+       * function, as glibc goes out of its way to make it inaccessible.
+       *
+       * This is simular to __kernel_rt_sigreturn().
+       */
+      long long res;
+      __asm__ __volatile__("b      2f\n"
+                        "1:\n"
+			  /* NOP required by some unwinder. For details.
+                           * see aarch64's vdso/sigreturn.S in the kernel.
+			   */
+			  "nop\n"
+			  /* Some system softwares recognize this instruction
+                           * sequence to unwind from * signal handlers. Do not
+                           * modify the next two instructions.
+			   */
+			  "mov     x8, %1\n"
+                          "svc     0x0\n"
+                        "2:\n"
+			  "adr     %0, 1b\n"
+                           : "=r" (res)
+                           : "i"  (__NR_rt_sigreturn));
+      return (void (*)(void))(uintptr_t)res;
+    }
   #elif defined(__mips__)
     #undef LSS_REG
     #define LSS_REG(r,a) register unsigned long __r##r __asm__("$"#r) =       \
@@ -4424,13 +4452,31 @@ struct kernel_statx {
         return LSS_NAME(rt_sigaction)(signum, act, oldact,
                                       (KERNEL_NSIG+7)/8);
     }
-
     LSS_INLINE int LSS_NAME(sigpending)(struct kernel_sigset_t *set) {
       return LSS_NAME(rt_sigpending)(set, (KERNEL_NSIG+7)/8);
     }
-
     LSS_INLINE int LSS_NAME(sigsuspend)(const struct kernel_sigset_t *set) {
       return LSS_NAME(rt_sigsuspend)(set, (KERNEL_NSIG+7)/8);
+    }
+  #endif
+  #if defined(__aarch64__)
+    LSS_INLINE int LSS_NAME(sigaction)(int signum,
+                                       const struct kernel_sigaction *act,
+                                       struct kernel_sigaction *oldact) {
+      /* On aarch64, the kernel requires us to always set our own
+       * SA_RESTORER in order to be able to return from a signal handler.
+       * This function must have a known "magic" instruction sequence
+       * that system softwares like a stack unwinder can recognize.
+       */
+      if (act != NULL && !(act->sa_flags & SA_RESTORER)) {
+        struct kernel_sigaction a = *act;
+        a.sa_flags   |= SA_RESTORER;
+        a.sa_restorer = LSS_NAME(restore_rt)();
+        return LSS_NAME(rt_sigaction)(signum, &a, oldact,
+                                      (KERNEL_NSIG+7)/8);
+      } else
+        return LSS_NAME(rt_sigaction)(signum, act, oldact,
+                                      (KERNEL_NSIG+7)/8);
     }
   #endif
   #if defined(__NR_rt_sigprocmask)
