@@ -1,0 +1,163 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c274d40e_5e3e165d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-01-18T17:29:30Z",
+      "side": 1,
+      "message": "mostly nits",
+      "revId": "e3f3fea061fcc532476c73fbe2149ce7bf7dc4ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4cb8478_e73cb8e2",
+        "filename": "linux_syscall_support.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 3039,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-01-18T17:29:30Z",
+      "side": 1,
+      "message": "no tabs please",
+      "revId": "e3f3fea061fcc532476c73fbe2149ce7bf7dc4ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10e754b5_0edc58cd",
+        "filename": "tests/sigreturn.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-01-18T17:29:30Z",
+      "side": 1,
+      "message": "```suggestion\nstatic volatile int alarm_triggered \u003d 0;\n```",
+      "revId": "e3f3fea061fcc532476c73fbe2149ce7bf7dc4ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0850095_e8f913d7",
+        "filename": "tests/sigreturn.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-01-18T17:29:30Z",
+      "side": 1,
+      "message": "nit: use a bool since it\u0027s just a flag",
+      "revId": "e3f3fea061fcc532476c73fbe2149ce7bf7dc4ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93375808_6f1260ee",
+        "filename": "tests/sigreturn.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-01-18T17:29:30Z",
+      "side": 1,
+      "message": "```suggestion\nstatic void alarm_sigaction(int sig, siginfo_t* info, void* ucontext) {\n```",
+      "revId": "e3f3fea061fcc532476c73fbe2149ce7bf7dc4ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ed27776_b49d061a",
+        "filename": "tests/sigreturn.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-01-18T17:29:30Z",
+      "side": 1,
+      "message": "```suggestion\n  // Set up a real-time alarm.\n```",
+      "revId": "e3f3fea061fcc532476c73fbe2149ce7bf7dc4ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f4cee1d_8f680922",
+        "filename": "tests/sigreturn.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-01-18T17:29:30Z",
+      "side": 1,
+      "message": "can you just inline these below ?  itimerval doesn\u0027t take pointers, so the assignments below copy contents.",
+      "revId": "e3f3fea061fcc532476c73fbe2149ce7bf7dc4ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a9ac2ef_b4e77b72",
+        "filename": "tests/sigreturn.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-01-18T17:29:30Z",
+      "side": 1,
+      "message": "this is a cpu burn, and there\u0027s no guarantee how long 1000000 nops/jumps take (could be too fast, could be way too slow).  can you just use usleep() in here ?",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 5
+      },
+      "revId": "e3f3fea061fcc532476c73fbe2149ce7bf7dc4ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e197d3e2_ba010443",
+        "filename": "tests/sigreturn.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-01-18T17:29:30Z",
+      "side": 1,
+      "message": "trim trailing newlines",
+      "revId": "e3f3fea061fcc532476c73fbe2149ce7bf7dc4ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
