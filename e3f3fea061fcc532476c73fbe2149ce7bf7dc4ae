@@ -308,6 +308,24 @@
       "parentUuid": "e197d3e2_ba010443",
       "revId": "e3f3fea061fcc532476c73fbe2149ce7bf7dc4ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf14f4aa_0fd66e1e",
+        "filename": "tests/sigreturn.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1548352
+      },
+      "writtenOn": "2024-01-18T20:10:05Z",
+      "side": 1,
+      "message": "There is something wrong with trailing newlines. In my local copy, there are no trailing newlines.  If I download the latest CL, there is only one trailing newline.  The Gerrit UI shows 2 trailing newlines. Does git append a newline?",
+      "parentUuid": "2853b376_e1c80833",
+      "revId": "e3f3fea061fcc532476c73fbe2149ce7bf7dc4ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
