@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eef4ced4_882c2191",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1548352
+      },
+      "writtenOn": "2024-01-31T20:21:44Z",
+      "side": 1,
+      "message": "Thanks for approving the patch.  It is now \"ready to submit\" but the \"submit\" button is greyed out. I don\u0027t have permission to submit it. Could I ask someone to submit it on my behalf?",
+      "parentUuid": "611029b2_6e570769",
+      "revId": "e3f3fea061fcc532476c73fbe2149ce7bf7dc4ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4cb8478_e73cb8e2",
