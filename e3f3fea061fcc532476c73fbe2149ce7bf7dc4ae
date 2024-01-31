@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "611029b2_6e570769",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000768
+      },
+      "writtenOn": "2024-01-31T19:58:40Z",
+      "side": 1,
+      "message": "i don\u0027t think you updated the attention set after updating the CL which is why it wasn\u0027t in my notification/todo list",
+      "parentUuid": "4f5945f9_ccbaa22c",
+      "revId": "e3f3fea061fcc532476c73fbe2149ce7bf7dc4ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4cb8478_e73cb8e2",
