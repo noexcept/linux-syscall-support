@@ -3662,7 +3662,7 @@ struct kernel_statx {
       int64_t __res;
       {
         register int64_t __res_a0 __asm__("a0");
-        register uint64_t __flags __asm__("a0") = flags;
+        register uint64_t __flags __asm__("a0") = (uint64_t)flags;
         register void *__stack __asm__("a1") = child_stack;
         register void *__ptid  __asm__("a2") = parent_tidptr;
         register void *__tls   __asm__("a3") = newtls;
